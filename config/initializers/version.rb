@@ -1,1 +1,1 @@
-VERSION = '0.1.1'
+TestGuru::Application.const_get :VERSION
