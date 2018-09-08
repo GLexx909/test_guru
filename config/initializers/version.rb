@@ -1,1 +1,5 @@
-TestGuru::Application.const_get :VERSION
+module TestGuru
+  class Application
+    VERSION = '0.1.2'.freeze
+  end
+end
