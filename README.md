@@ -4,3 +4,4 @@ Objects list:
   * Question
   * Answer
   * User
+  * Category
