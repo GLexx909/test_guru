@@ -1,12 +1,17 @@
 class Test < ApplicationRecord
   belongs_to :category
+  #Скоуп в этом случае неуместен? Использовать обычный self.метод?
+  scope :titles_by_category2, ->(category_title) { self.joins(
+    "INNER JOIN categories
+    ON categories.id = tests.category_id
+    AND categories.title = '#{category_title}'")
+    .order(title: :DESC).pluck(:title) }
 
-  def self.titles(category_name)
-    category_id = Category.find_by_title(category_name).id
-    tests_title = []
-    Test.where(category_id: category_id).order(title: :desc).each do |test|
-      tests_title<<test.title
-    end
-    tests_title
+  def self.titles_by_category(category_title)
+    self.joins(
+      "INNER JOIN categories
+      ON categories.id = tests.category_id
+      AND categories.title = '#{category_title}'")
+       .order(title: :DESC).pluck(:title)
   end
 end
