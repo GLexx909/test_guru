@@ -15,115 +15,114 @@ category = Category.create!([ {title: "История"}, {title: "Обществ
 
 tests = Test.create!([
   #Test: 1
-  {title: "Древняя Русь", level: 1, category_id: category[0].id},
+  {title: "Древняя Русь", level: 1, category: category[0], author: users[0]},
   #Test: 2
-  {title: "Территориально-государственное устройство", level: 2, category_id: category[1].id},
+  {title: "Территориально-государственное устройство", level: 2, category: category[1], author: users[0]},
   #Test: 3
-  {title: "Субьекты РФ", level: 2, category_id: category[1].id}
+  {title: "Субьекты РФ", level: 2, category: category[1], author: users[1]}
 ])
 
 questions = Question.create!([
   #Test: 1
-  {body: "Какие племена существовали:", test_id: tests[0].id},
-  {body: "Что в Древней Руси называлось полюдьем:", test_id: tests[0].id},
-  {body: "Какое из событий произошло позже всех остальных:", test_id: tests[0].id},
-  {body: "В Древней Руси налог в пользу церкви назывался:", test_id: tests[0].id},
+  {body: "Какие племена существовали:", test: tests[0]},
+  {body: "Что в Древней Руси называлось полюдьем:", test: tests[0]},
+  {body: "Какое из событий произошло позже всех остальных:", test: tests[0]},
+  {body: "В Древней Руси налог в пользу церкви назывался:", test: tests[0]},
 
   #Test: 2
-  {body: "Какие цвета включает флаг РФ:", test_id: tests[1].id},
-  {body: "Количество субьектов РФ:", test_id: tests[1].id},
-  {body: "Стремление нации к отделению называется:", test_id: tests[1].id},
-  {body: "Что из этого является формой правления:", test_id: tests[1].id},
+  {body: "Какие цвета включает флаг РФ:", test: tests[1]},
+  {body: "Количество субьектов РФ:", test: tests[1]},
+  {body: "Стремление нации к отделению называется:", test: tests[1]},
+  {body: "Что из этого является формой правления:", test: tests[1]},
 
   #Test: 3
-  {body: "Количество республик в РФ:", test_id: tests[2].id},
-  {body: "Количество городов федерального значения:", test_id: tests[2].id},
-  {body: "Количество краёв:", test_id: tests[2].id},
-  {body: "Количество автономных областей:", test_id: tests[2].id},
-  {body: "Количество областей:", test_id: tests[2].id},
-  {body: "Количество автономных округов:", test_id: tests[2].id}
+  {body: "Количество республик в РФ:", test: tests[2]},
+  {body: "Количество городов федерального значения:", test: tests[2]},
+  {body: "Количество краёв:", test: tests[2]},
+  {body: "Количество автономных областей:", test: tests[2]},
+  {body: "Количество областей:", test: tests[2]},
+  {body: "Количество автономных округов:", test: tests[2]}
 ])
 
 Answer.create!([
   #Test: 1
-  {body: "древляне", question_id: questions[0].id, correct: true},
-  {body: "тупяне", question_id: questions[0].id},
-  {body: "бубяне", question_id: questions[0].id},
-  {body: "поляне", question_id: questions[0].id, correct: true},
+  {body: "древляне", question: questions[0], correct: true},
+  {body: "тупяне", question: questions[0]},
+  {body: "бубяне", question: questions[0]},
+  {body: "поляне", question: questions[0], correct: true},
 
-  {body: "сбор князем дани с подвластных ему земель", question_id: questions[1].id, correct: true},
-  {body: "собрание княжеской дружины", question_id: questions[1].id},
-  {body: "ополчение, состоящее из всех мужчин племени", question_id: questions[1].id},
-  {body: "княжеский суд над общинниками", question_id: questions[1].id},
+  {body: "сбор князем дани с подвластных ему земель", question: questions[1], correct: true},
+  {body: "собрание княжеской дружины", question: questions[1]},
+  {body: "ополчение, состоящее из всех мужчин племени", question: questions[1]},
+  {body: "княжеский суд над общинниками", question: questions[1]},
 
-  {body: "крещение Руси", question_id: questions[2].id},
-  {body: "походы князя Олега на Византию", question_id: questions[2].id},
-  {body: "начало кодификации древнерусских законов", question_id: questions[2].id, correct: true},
-  {body: "призвание варягов", question_id: questions[2].id},
+  {body: "крещение Руси", question: questions[2]},
+  {body: "походы князя Олега на Византию", question: questions[2]},
+  {body: "начало кодификации древнерусских законов", question: questions[2], correct: true},
+  {body: "призвание варягов", question: questions[2]},
 
-  {body: "десятина", question_id: questions[3].id, correct: true},
-  {body: "урок", question_id: questions[3].id},
-  {body: "подушная подать", question_id: questions[3].id},
-  {body: "пожилое", question_id: questions[3].id},
+  {body: "десятина", question: questions[3], correct: true},
+  {body: "урок", question: questions[3]},
+  {body: "подушная подать", question: questions[3]},
+  {body: "пожилое", question: questions[3]},
 
   #Test: 2
-  {body: "жовтий", question_id: questions[4].id},
-  {body: "блакитний", question_id: questions[4].id},
-  {body: "белый", question_id: questions[4].id, correct: true},
-  {body: "красный", question_id: questions[4].id, correct: true},
-  {body: "синий", question_id: questions[4].id, correct: true},
+  {body: "жовтий", question: questions[4]},
+  {body: "блакитний", question: questions[4]},
+  {body: "белый", question: questions[4], correct: true},
+  {body: "красный", question: questions[4], correct: true},
+  {body: "синий", question: questions[4], correct: true},
 
-  {body: "65", question_id: questions[5].id},
-  {body: "85", question_id: questions[5].id, correct: true},
-  {body: "73", question_id: questions[5].id},
-  {body: "91", question_id: questions[5].id},
+  {body: "65", question: questions[5]},
+  {body: "85", question: questions[5], correct: true},
+  {body: "73", question: questions[5]},
+  {body: "91", question: questions[5]},
 
-  {body: "интеграция", question_id: questions[6].id},
-  {body: "сепаратизм", question_id: questions[6].id, correct: true},
-  {body: "глобализация", question_id: questions[6].id},
-  {body: "централизация", question_id: questions[6].id},
+  {body: "интеграция", question: questions[6]},
+  {body: "сепаратизм", question: questions[6], correct: true},
+  {body: "глобализация", question: questions[6]},
+  {body: "централизация", question: questions[6]},
 
-  {body: "унитарное государство", question_id: questions[7].id},
-  {body: "федерация", question_id: questions[7].id},
-  {body: "монархия", question_id: questions[7].id, correct: true},
-  {body: "демократия", question_id: questions[7].id},
+  {body: "унитарное государство", question: questions[7]},
+  {body: "федерация", question: questions[7]},
+  {body: "монархия", question: questions[7], correct: true},
+  {body: "демократия", question: questions[7]},
 
   #Test: 3
-  {body: "13", question_id: questions[8].id},
-  {body: "22", question_id: questions[8].id, correct: true},
-  {body: "23", question_id: questions[8].id},
-  {body: "11", question_id: questions[8].id},
+  {body: "13", question: questions[8]},
+  {body: "22", question: questions[8], correct: true},
+  {body: "23", question: questions[8]},
+  {body: "11", question: questions[8]},
 
-  {body: "1", question_id: questions[9].id},
-  {body: "2", question_id: questions[9].id},
-  {body: "3", question_id: questions[9].id, correct: true},
-  {body: "4", question_id: questions[9].id},
+  {body: "1", question: questions[9]},
+  {body: "2", question: questions[9]},
+  {body: "3", question: questions[9], correct: true},
+  {body: "4", question: questions[9]},
 
-  {body: "5", question_id: questions[10].id},
-  {body: "9", question_id: questions[10].id, correct: true},
-  {body: "11", question_id: questions[10].id},
-  {body: "19", question_id: questions[10].id},
+  {body: "5", question: questions[10]},
+  {body: "9", question: questions[10], correct: true},
+  {body: "11", question: questions[10]},
+  {body: "19", question: questions[10]},
 
-  {body: "1", question_id: questions[11].id, correct: true},
-  {body: "2", question_id: questions[11].id},
-  {body: "3", question_id: questions[11].id},
-  {body: "4", question_id: questions[11].id},
+  {body: "1", question: questions[11], correct: true},
+  {body: "2", question: questions[11]},
+  {body: "3", question: questions[11]},
+  {body: "4", question: questions[11]},
 
-  {body: "32", question_id: questions[12].id},
-  {body: "35", question_id: questions[12].id},
-  {body: "39", question_id: questions[12].id},
-  {body: "46", question_id: questions[12].id, correct: true},
+  {body: "32", question: questions[12]},
+  {body: "35", question: questions[12]},
+  {body: "39", question: questions[12]},
+  {body: "46", question: questions[12], correct: true},
 
-  {body: "4", question_id: questions[13].id, correct: true},
-  {body: "5", question_id: questions[13].id},
-  {body: "6", question_id: questions[13].id},
-  {body: "7", question_id: questions[13].id}
+  {body: "4", question: questions[13], correct: true},
+  {body: "5", question: questions[13]},
+  {body: "6", question: questions[13]},
+  {body: "7", question: questions[13]}
 ])
 
 TestPassage.create!([
-  {user_id: users[0].id, test_id: tests[1].id},
-  {user_id: users[0].id, test_id: tests[2].id},
-  {user_id: users[0].id, test_id: tests[0].id},
-  {user_id: users[1].id, test_id: tests[1].id},
-  {user_id: users[2].id, test_id: tests[0].id}
+  {user: users[0], test: tests[1]},
+  {user: users[0], test: tests[2]},
+  {user: users[1], test: tests[1]},
+  {user: users[2], test: tests[0]}
 ])

@@ -1,6 +1,10 @@
 class User < ApplicationRecord
+  has_many :test_passages
+  has_many :tests, through: :test_passages
+  has_many :created_tests, class_name: "Test", foreign_key: "author_id"
 
-  def passed_test(level)
-    Test.joins("INNER JOIN test_passages").where(test_passages: {user_id: self.id}).where("level = ?", level).distinct
+  def passed_tests(level)
+    self.tests.where("level = :level", level: level).distinct
   end
+
 end
