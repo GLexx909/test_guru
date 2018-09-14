@@ -15,11 +15,11 @@ category = Category.create!([ {title: "История"}, {title: "Обществ
 
 tests = Test.create!([
   #Test: 1
-  {title: "Древняя Русь", level: 1, category_id: category[0].id, author_id: users[0]},
+  {title: "Древняя Русь", level: 1, category_id: category[0].id, author_id: users[0].id},
   #Test: 2
-  {title: "Территориально-государственное устройство", level: 2, category_id: category[1].id, author_id: users[0]},
+  {title: "Территориально-государственное устройство", level: 2, category_id: category[1].id, author_id: users[0].id},
   #Test: 3
-  {title: "Субьекты РФ", level: 2, category_id: category[1].id, author_id: users[1]}
+  {title: "Субьекты РФ", level: 2, category_id: category[1].id, author_id: users[1].id}
 ])
 
 questions = Question.create!([
@@ -123,7 +123,6 @@ Answer.create!([
 TestPassage.create!([
   {user_id: users[0].id, test_id: tests[1].id},
   {user_id: users[0].id, test_id: tests[2].id},
-  {user_id: users[0].id, test_id: tests[0].id},
   {user_id: users[1].id, test_id: tests[1].id},
   {user_id: users[2].id, test_id: tests[0].id}
 ])
