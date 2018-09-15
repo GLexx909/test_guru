@@ -19,7 +19,7 @@ tests = Test.create!([
   #Test: 2
   {title: "Территориально-государственное устройство", level: 2, category: category[1], author: users[0]},
   #Test: 3
-  {title: "Субьекты РФ", level: 2, category: category[1], author: users[1]}
+  {title: "Субьекты РФ", level: 6, category: category[1], author: users[1]}
 ])
 
 questions = Question.create!([
