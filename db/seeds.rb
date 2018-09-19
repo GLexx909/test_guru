@@ -68,7 +68,6 @@ Answer.create!([
 
   #Test: 2
   {body: "жовтий", question: questions[4]},
-  {body: "блакитний", question: questions[4]},
   {body: "белый", question: questions[4], correct: true},
   {body: "красный", question: questions[4], correct: true},
   {body: "синий", question: questions[4], correct: true},
