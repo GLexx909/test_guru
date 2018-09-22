@@ -1,4 +1,7 @@
-- @questions.each do |question|
-  = question.body
-  = link_to 'Delete', question_path(question), method: :delete, data: { confirm: 'Are you sure?' }
-  br/
+table border="2px"
+  caption
+    | All Questions:
+  tr
+    th Questions
+    th colspan='3' Actions
+  = render @questions

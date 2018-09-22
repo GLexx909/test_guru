@@ -1,0 +1,7 @@
+= form_for @question, url: test_questions_path(@question.test), method: 'post' do |f|
+  = render 'shared/errors', resourse: @question
+  .field
+    = f.label :body
+    = f.text_field :body
+  .actions
+    = f.submit 'Сохранить'

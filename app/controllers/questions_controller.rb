@@ -20,7 +20,21 @@ class QuestionsController < ApplicationController
     if @question.save
       redirect_to test_questions_path
     else
-      render 'new'
+      render :new
+    end
+  end
+
+  def edit
+    @question = Question.find(params[:id])
+  end
+
+  def update
+    @question = Question.find(params[:id])
+
+    if @question.update(question_params)
+      redirect_to test_questions_path(@question.test)
+    else
+      render :edit
     end
   end
 
