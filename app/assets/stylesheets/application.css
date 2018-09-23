@@ -16,6 +16,7 @@
 body {
   margin: 0;
   padding: 0;
+  background-color: #f6f5ed;
 }
 
 .container {
@@ -86,9 +87,9 @@ footer .rightFooter .links{
   padding-top: 10px;
   margin-top: 10px}
 
-footer .rightFooter .links ul li {
+footer .rightFooter .links div{
   list-style-type: none;
-  float: left;
+  display: inline-block;
   margin: 5px;
 }
 
@@ -100,6 +101,11 @@ table {
   border-collapse: collapse;
   width: 50%;
   margin: 10px auto;
+}
+
+caption div:nth-child(n) {
+  margin: 10px;
+  display: inline-block;
 }
 
 @media screen and (max-width: 600px) {

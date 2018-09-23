@@ -1,4 +1,5 @@
-= form_for @question, url: test_questions_path(@question.test), method: 'post' do |f|
+h2 = question_header(@question)
+= form_with model: [@test, @question] do |f|
   = render 'shared/errors', resourse: @question
   .field
     = f.label :body

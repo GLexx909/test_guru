@@ -1,1 +1,12 @@
-= render 'questions/index'
+table border="2px"
+  caption
+    div = @test.title
+    div   Level: #{@test.level}
+    div   By: #{User.find(@test.author_id).name}
+    div   Date: #{@test.created_at.strftime("%b %Y")}
+  tr
+    th Questions
+    th colspan='3' Actions
+  = render @test.questions
+div = link_to 'Create new question', new_test_question_path(@test)
+div = link_to 'Back to Tests', tests_path
