@@ -2,7 +2,7 @@ table border="2px"
   caption
     div = @test.title
     div   Level: #{@test.level}
-    div   By: #{User.find(@test.author_id).name}
+    div   By: #{@test.author.name}
     div   Date: #{@test.created_at.strftime("%b %Y")}
   tr
     th Questions

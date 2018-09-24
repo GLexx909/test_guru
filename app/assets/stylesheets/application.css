@@ -59,7 +59,7 @@ main {
 
 footer {
   grid-area: footer;
-  background-color: #20252a;
+  background-color: #20252A;
 
   display: grid;
   grid-template-areas:  'leftFooter rightFooter';

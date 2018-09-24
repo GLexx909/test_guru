@@ -1,8 +1,9 @@
 h2 = question_header(@question)
-= form_with model: [@test, @question] do |f|
+= form_with model: [@test, @question], local: true do |f|
   = render 'shared/errors', resourse: @question
   .field
     = f.label :body
     = f.text_field :body
   .actions
     = f.submit 'Сохранить'
+= link_to 'Back', test_path(@question.test)
