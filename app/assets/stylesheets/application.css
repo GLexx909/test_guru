@@ -16,7 +16,7 @@
 body {
   margin: 0;
   padding: 0;
-  background-color: #f6f5ed;
+  /* background-color: #f6f5ed; */
 }
 
 .container {
@@ -33,43 +33,42 @@ body {
 
 header {
   grid-area: header;
-  background-color: #20252a;
+  background-color: #052433;
 }
 
 header .textLogo{
   font-size: 5vh;
-  color: #1F3856;
-  text-shadow: white 1px 1px;
+  color: white;
 }
 
 .leftSide {
   grid-area: left;
-  background-color: Silver;
+  background-color: #052433;
 }
 
 main {
   grid-area: main;
-
 }
 
 .rightSide {
   grid-area: right;
-  background-color: Silver;
+  background-color: #052433;
 }
 
 footer {
   grid-area: footer;
-  background-color: #20252A;
+  background-color: #052433;
 
   display: grid;
   grid-template-areas:  'leftFooter rightFooter';
-  grid-template-columns: 30% 70%;
+  grid-template-columns: 40% 60%;
   grid-template-rows: auto;
   color: white;
 }
 
 footer .leftFooter {
   grid-area: leftFooter;
+  margin-left: 150px;
 }
 
 footer .leftFooter .description{
@@ -129,5 +128,9 @@ caption div:nth-child(n) {
     grid-template-columns: 100%;
     grid-template-rows: auto
                         100px;
+  }
+
+  .container footer .leftFooter {
+    margin-left: 0;
   }
 }
