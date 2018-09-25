@@ -1,0 +1,8 @@
+table border="2px"
+  tr
+    th Tests
+    th Actions
+  - @tests.each do |test|
+    tr
+      td = test.title
+      td = link_to 'Show', test_path(test)

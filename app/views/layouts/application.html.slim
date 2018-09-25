@@ -8,4 +8,26 @@ html
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   body
-    = yield
+    .container
+      header
+        .textLogo
+          |TEST GURU
+      .leftSide
+      main
+        = yield
+      .rightSide
+      footer
+        .leftFooter
+          .description
+            |This app is designed to pass tests that will show the level of
+            |your knowledge in certain topics.
+            |This will allow you to understand in what areas of knowledge you
+            |have problems.
+            |If you like the resource, you can help this project.
+            = link_to "Donate", 'https://money.yandex.ru/to/410014262279209', target: '_blank'
+        .rightFooter
+          .links
+            div  ©
+            div = curren_year
+            div = github_url('GLexx909', 'test_guru')
+            div = link_to 'Учебный проект в онлайн-школе Thinknetica', 'http://thinknetica.com', target: '_blank'
