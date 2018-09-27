@@ -1,5 +1,5 @@
 class AnswersController < ApplicationController
-  before_action :set_answer, only: [:show, :edit, :update, :destroy]
+  before_action :find_answer, only: [:show, :edit, :update, :destroy]
   before_action :find_question, only: [:new, :create]
 
   def show
@@ -13,7 +13,7 @@ class AnswersController < ApplicationController
   end
 
   def create
-    @answer = Answer.new(answer_params)
+    @answer = @question.answer.new(answer_params)
 
     if @answer.save
       redirect_to @answer
@@ -28,7 +28,7 @@ class AnswersController < ApplicationController
     else
       render :edit
     end
-  end  
+  end
 
   def destroy
     @answer.destroy
@@ -37,7 +37,7 @@ class AnswersController < ApplicationController
 
   private
 
-  def set_answer
+  def find_answer
     @answer = Answer.find(params[:id])
   end
 

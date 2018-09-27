@@ -3,7 +3,7 @@ h1
   = @test_passage.test.title
   | Test
 
-p Question #{@test_passage.number} of #{@test_passage.test.questions.count}
+p Question #{@test_passage.questions_counter} of #{@test_passage.test.questions.count}
 
 b = @test_passage.current_question.body
 
@@ -13,3 +13,4 @@ b = @test_passage.current_question.body
       = b.check_box id: "answer_ids_#{b.object.id}"
       = b.label
   = form.submit 'Next'
+= link_to 'Break the Test', tests_path

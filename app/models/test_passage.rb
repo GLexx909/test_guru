@@ -1,54 +1,45 @@
 class TestPassage < ApplicationRecord
-  attr_writer :number
-
   belongs_to :user
   belongs_to :test
   belongs_to :current_question, class_name: 'Question', optional: true
 
-  before_validation :before_validation_set_first_question, on: :create
-  before_update :before_update_set_next_question, on: :update
-  before_update :before_update_set_current_answer_number, on: :update #Подсчёт страницы. Неверно
+  before_save :before_save_set_next_question
 
   def completed?
     current_question.nil?
   end
 
   def accept!(answer_ids)
-    if correct_answer?(answer_ids)
-      self.correct_questions += 1
-    end
+    self.correct_questions += 1 if correct_answer?(answer_ids)
     save!
   end
 
-  def number
-    @number ||= 1 #Подсчёт страницы. Неверно
+  def correct_percent
+    (100.to_f/test.questions.count)*correct_questions
   end
 
-  def correct_percent
-    (100/test.questions.count)*correct_questions
+  def questions_counter
+    test.questions.index(current_question) + 1
+  end
+
+  def good_result
+    correct_percent > 84
   end
 
   private
 
-  def before_update_set_current_answer_number
-    self.number += 1 #Подсчёт страницы. Неверно
-  end
+  def before_save_set_next_question
+    if current_question.nil?
+      self.current_question = test.questions.first if test.present?
+    else
+      next_question = test.questions.order(:id).where('id > ?', current_question.id).first
+      self.current_question = next_question
+    end
 
-
-  def before_validation_set_first_question
-    self.current_question = test.questions.first if test.present?
-  end
-
-  def before_update_set_next_question
-    next_question = test.questions.order(:id).where('id > ?', current_question.id).first
-    self.current_question = next_question
   end
 
   def correct_answer?(answer_ids)
-    correct_answers_count = correct_answers.count
-
-    (correct_answers_count == correct_answers.where(id: answer_ids).count) &&
-    correct_answers_count == answer_ids.count
+    answer_ids.nil? ? false : correct_answers.pluck(:id).sort == answer_ids.map(&:to_i).sort
   end
 
   def correct_answers
