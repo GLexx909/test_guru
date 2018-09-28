@@ -1,0 +1,10 @@
+h1 The #{ @test_passage.test.title } Test was Completed!
+- if @test_passage.success?
+  .percent
+    div Test failed. Correct answers:
+    .win #{@test_passage.correct_percent.to_i}%
+- else
+  .percent
+    div Test passed. Correct answers:
+    .lose #{@test_passage.correct_percent.to_i}%
+= link_to 'Tests list', tests_path(@test_passage.test)
