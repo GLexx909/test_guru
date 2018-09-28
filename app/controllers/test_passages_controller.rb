@@ -1,5 +1,5 @@
 class TestPassagesController < ApplicationController
-  before_action :set_test_passage, only: [:show, :update, :result]
+  before_action :find_test_passage, only: [:show, :update, :result]
 
   def show
   end
@@ -19,7 +19,7 @@ class TestPassagesController < ApplicationController
 
   private
 
-  def set_test_passage
+  def find_test_passage
     @test_passage = TestPassage.find(params[:id])
   end
 

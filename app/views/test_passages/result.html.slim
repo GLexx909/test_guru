@@ -1,5 +1,5 @@
 h1 The #{ @test_passage.test.title } Test was Completed!
-- if @test_passage.good_result
+- if @test_passage.success?
   .percent
     div Test failed. Correct answers:
     .win #{@test_passage.correct_percent.to_i}%

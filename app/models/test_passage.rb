@@ -19,27 +19,29 @@ class TestPassage < ApplicationRecord
   end
 
   def questions_counter
-    test.questions.index(current_question) + 1
+    test.questions.count - test.questions.order(:id).where('id > ?', current_question.id).count
   end
 
-  def good_result
+  def success?
     correct_percent > 84
   end
 
   private
 
   def before_save_set_next_question
-    if current_question.nil?
-      self.current_question = test.questions.first if test.present?
-    else
-      next_question = test.questions.order(:id).where('id > ?', current_question.id).first
-      self.current_question = next_question
-    end
+    self.current_question = next_question
+  end
 
+  def next_question
+    if current_question.nil?
+      test.questions.first if test.present?
+    else
+      test.questions.order(:id).where('id > ?', current_question.id).first
+    end
   end
 
   def correct_answer?(answer_ids)
-    answer_ids.nil? ? false : correct_answers.pluck(:id).sort == answer_ids.map(&:to_i).sort
+    correct_answers.pluck(:id).sort == answer_ids.to_a.map(&:to_i).sort
   end
 
   def correct_answers
