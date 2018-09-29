@@ -19,7 +19,7 @@ class TestPassage < ApplicationRecord
   end
 
   def questions_counter
-    test.questions.count - test.questions.order(:id).where('id > ?', current_question.id).count
+    test.questions.count - test.questions.order(:id).where('id > ?', current_question.id).count #Этот метод верно написан?
   end
 
   def success?

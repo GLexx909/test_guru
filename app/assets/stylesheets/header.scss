@@ -1,0 +1,26 @@
+header {
+  grid-area: header;
+
+  display: flex;
+  justify-content: space-around;
+
+  background-color: #052433;
+}
+
+header .textLogo{
+  font-size: 5vh;
+  color: white;
+
+}
+
+header a {
+  text-decoration: none;
+  color: white;
+  &:hover {
+    color: #fff;
+    text-shadow: 3px 3px 5px black, 0 0 1em green;
+  }
+  &:visited {
+    color: white;
+  }
+}
