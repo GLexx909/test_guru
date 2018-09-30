@@ -40,7 +40,7 @@ class TestsController < ApplicationController
   end
 
   def find_user
-    @user = current_user #или можно @user везде заменить на current_user ?
+    @user = current_user
   end
 
 end

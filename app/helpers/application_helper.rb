@@ -9,7 +9,7 @@ module ApplicationHelper
   end
 
   def welcome_message
-    "Welcome #{ current_user.name } Guru" if logged_in?
+    "Welcome #{ current_user.name } Guru" if user_signed_in?
   end
 
 end
