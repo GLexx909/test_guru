@@ -9,7 +9,7 @@ module User::Auth
     validates :name, presence: true
     validates :email, presence: true, uniqueness: true,
     format: { with: /.+@.+\..+/i }
-    validates :password, presence: true, if: Proc.new { |user| user.password_digest.blank? }
+    validates :password, presence: true, if: proc { |user| user.password_digest.blank? }
     validates :password, confirmation: true
   end
 

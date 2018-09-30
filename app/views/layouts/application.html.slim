@@ -14,12 +14,14 @@ html
           = link_to 'TEST GURU', root_path
         nav
           .nav__container
-            .nav__nav__container__signup
-              b = signup
-            .nav__nav__container__login
-              b = login
-            .nav__nav__container__signout
-              b = signout
+            - unless current_user
+              .nav__nav__container__signup
+                b = link_to 'Signup', signup_path
+              .nav__nav__container__login
+                b = link_to 'Login', login_path
+            - else
+              .nav__nav__container__signout
+                b = link_to 'Signout', signout_path
 
       .leftSide
       main

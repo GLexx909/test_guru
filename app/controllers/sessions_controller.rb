@@ -8,9 +8,7 @@ class SessionsController < ApplicationController
 
     if user&.authenticate(params[:password])
       session[:user_id] = user.id
-      redirect_to tests_path
-      puts "hello"
-      puts cookies[:email]
+      redirect_to cookies[:path]
     else
       flash.now[:alert] = 'Verify your entered data'
       render :new
@@ -18,9 +16,7 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    session[:user_id] = nil
-    #session.clear или
-    #reset_session ?
+    session.delete(:user_id)
     redirect_to login_path
   end
 

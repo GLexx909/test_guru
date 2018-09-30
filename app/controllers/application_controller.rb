@@ -7,10 +7,10 @@ class ApplicationController < ActionController::Base
 
   def authenticate_user!
     unless current_user
-      return redirect_to login_path, alert: 'Verify your entered data'
+      redirect_to login_path, alert: 'Verify your entered data'
     end
 
-    # cookies[:email] = {value: current_user.email, path: '/root'}
+    cookies[:path] = tests_path
   end
 
   def current_user
