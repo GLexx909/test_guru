@@ -16,7 +16,6 @@
 body {
   margin: 0;
   padding: 0;
-  /* background-color: #f6f5ed; */
 }
 
 .container {
@@ -29,16 +28,6 @@ body {
                       1fr
                       10%;
   min-height: 100vh;
-}
-
-header {
-  grid-area: header;
-  background-color: #052433;
-}
-
-header .textLogo{
-  font-size: 5vh;
-  color: white;
 }
 
 .leftSide {

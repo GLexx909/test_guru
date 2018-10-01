@@ -11,10 +11,25 @@ html
     .container
       header
         .textLogo
-          |TEST GURU
+          = link_to 'TEST GURU', root_path
+        nav
+          .nav__container
+            - if user_signed_in?
+              .nav__nav__container__signout
+                b = link_to 'Signout', signout_path
+            - else
+              .nav__nav__container__signup
+                b = link_to 'Signup', signup_path
+              .nav__nav__container__login
+                b = link_to 'Login', login_path
+
       .leftSide
       main
+        .main__logged
+          p = welcome_message
+
         = yield
+
       .rightSide
       footer
         .leftFooter

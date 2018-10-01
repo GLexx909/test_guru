@@ -1,0 +1,9 @@
+.nav__container {
+  display: flex;
+  height: 100%;
+  align-items: flex-end;
+}
+
+.nav__container > div {
+  padding: 5px;
+}
