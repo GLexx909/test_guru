@@ -2,11 +2,12 @@ Rails.application.routes.draw do
 
   root 'tests#index'
 
-  devise_for :users, path: :gurus, path_names: { sign_in: :login, sign_out: :logout }, controllers: { registrations: 'users/registrations' }
+  devise_for :users, path: :gurus, path_names: { sign_in: :login, sign_out: :logout },
+   controllers: { registrations: 'users/registrations', sessions: 'users/sessions', :confirmations => 'users/confirmations' }
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
-  resources :tests do
+  resources :tests, only: :index do
     resources :questions, shallow: true, except: :index do
       resources :answers, shallow: true, except: :index
     end
@@ -16,6 +17,14 @@ Rails.application.routes.draw do
 
   resources :test_passages, only: [:show, :update] do
     get :result, on: :member
+  end
+
+  namespace :admin do
+    resources :tests do
+      resources :questions, shallow: true, except: :index do
+        resources :answers, shallow: true, except: :index
+      end
+    end
   end
 
 end
