@@ -14,7 +14,7 @@ class Admin::TestsController < Admin::BaseController
   end
 
   def create
-    @test = current_user.tests.new(test_params)
+    @test = current_user.tests.new(test_params) #Тест не видит автора не поэтому (хотя тут не правильно написано. current_user.tests автора не даёт. Тут дефолт может прописывать надо в params ? )
 
     if @test.save
       redirect_to @test
@@ -39,6 +39,7 @@ class Admin::TestsController < Admin::BaseController
   private
 
   def test_params
+    params = ActionController::Parameters.new(test: { author: current_user })
     params.permit(:title, :level, :category_id)
   end
 

@@ -28,3 +28,4 @@ class Users::ConfirmationsController < Devise::ConfirmationsController
   #   super(resource_name, resource)
   # end
 end
+#"Убери переопределение контроллеров, в которых нет никаких изменений" - просто удалить вручную или как нибудь rails destroy controller user:unlocks (что не сработало).
