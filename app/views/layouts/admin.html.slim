@@ -11,7 +11,7 @@ html
     .container
       header.adminHeader
         .textLogo.adminLogo
-          = link_to 'TEST GURU ADMIN SESSION', root_path
+          = link_to 'TEST GURU ADMIN SESSION', admin_tests_path
         nav
           .nav__container
             - if user_signed_in?
@@ -41,7 +41,7 @@ html
             |This will allow you to understand in what areas of knowledge you
             |have problems.
             |If you like the resource, you can help this project.
-            = link_to "Donate", 'https://money.yandex.ru/to/410014262279209', target: '_blank'
+            = link_to "Donate", '#'
         .rightFooter
           .links
             div  ©

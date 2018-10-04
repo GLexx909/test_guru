@@ -1,4 +1,5 @@
-= form_with model: [:admin, @test], local: true do |form|
+/ = form_with model: [:admin, @test], local: true do |form|
+= form_with url: admin_tests_path(@test), local: true, method: :post do |form|
   = render 'shared/errors', resourse: @test
 
   .field

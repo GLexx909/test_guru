@@ -1,4 +1,4 @@
-class QuestionsController < Admin::BaseController
+class Admin::QuestionsController < Admin::BaseController
 
   before_action :find_test, only: [:new, :create, :index]
   before_action :find_question, only: [:show, :edit, :update, :destroy]
@@ -15,7 +15,7 @@ class QuestionsController < Admin::BaseController
   def create
     @question = @test.questions.new(question_params)
     if @question.save
-      redirect_to test_path(@question.test)
+      redirect_to admin_test_path(@question.test)
     else
       render :new
     end
@@ -26,7 +26,7 @@ class QuestionsController < Admin::BaseController
 
   def update
     if @question.update(question_params)
-      redirect_to @question.test
+      redirect_to admin_test_path(@question.test)
     else
       render :edit
     end
@@ -48,7 +48,7 @@ class QuestionsController < Admin::BaseController
   end
 
   def question_params
-    params.require(:question).permit(:body)
+    params.permit(:body) #Какого фига с require(:question) не работало, а без - работает?
   end
 
   def rescue_with_question_not_found

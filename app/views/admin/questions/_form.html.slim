@@ -1,0 +1,10 @@
+h2 = question_header(@question)
+/ = form_with model: [:admin, @question], local: true do |f|
+= form_with url: admin_test_questions_path(@question.test), local: true, method: :post do |f|
+  = render 'shared/errors', resourse: @question
+  .field
+    = f.label :body
+    = f.text_field :body
+  .actions
+    = f.submit 'Сохранить'
+= link_to 'Back', admin_test_path(@question.test)

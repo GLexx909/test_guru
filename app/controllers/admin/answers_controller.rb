@@ -1,4 +1,4 @@
-class AnswersController < ApplicationController
+class Admin::AnswersController < Admin::BaseController
 
   before_action :find_answer, only: [:show, :edit, :update, :destroy]
   before_action :find_question, only: [:new, :create]
@@ -25,7 +25,7 @@ class AnswersController < ApplicationController
 
   def update
     if @answer.update(answer_params)
-      redirect_to @answer
+      redirect_to admin_question_path
     else
       render :edit
     end
@@ -47,6 +47,6 @@ class AnswersController < ApplicationController
   end
 
   def answer_params
-    params.require(:answer).permit(:body, :correct)
+    params.permit(:body, :correct)
   end
 end

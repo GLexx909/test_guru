@@ -9,9 +9,10 @@ class Users::SessionsController < Devise::SessionsController
   # end
 
   # POST /resource/sign_in
-  # def create
-  #   super
-  # end
+  def create
+    super
+    flash[:notice] = "Hello #{current_user.name}" #Наверное может в sessions_helper можно вынести (видоизменив) и во вьюзу засунуть, но его(хелпера) нет. Как правильно?
+  end
 
   # DELETE /resource/sign_out
   # def destroy
@@ -25,16 +26,16 @@ class Users::SessionsController < Devise::SessionsController
   #   devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])
   # end
 
-  protected
-
-   def after_sign_in_path_for(resource)
-     # signed_in_root_path(resource)
-     if resource.is_a?(Admin)
-       admin_tests_path
-     else
-       super
-     end
-     
-   end
+  # protected
+  #
+  #  def after_sign_in_path_for(resource)
+  #    # signed_in_root_path(resource)
+  #    if resource.is_a?(Admin)
+  #      admin_tests_path
+  #    else
+  #      super
+  #    end
+  #
+  #  end
 
 end
