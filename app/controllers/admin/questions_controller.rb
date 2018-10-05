@@ -34,7 +34,7 @@ class Admin::QuestionsController < Admin::BaseController
 
   def destroy
     @question.destroy
-    redirect_to @question.test
+    redirect_to admin_test_path(@question.test)
   end
 
   private
@@ -48,7 +48,7 @@ class Admin::QuestionsController < Admin::BaseController
   end
 
   def question_params
-    params.permit(:body) #Какого фига с require(:question) не работало, а без - работает?
+    params.require(:question).permit(:body)
   end
 
   def rescue_with_question_not_found

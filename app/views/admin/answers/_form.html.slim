@@ -1,5 +1,4 @@
-/ = form_with url: admin_question_answers_path(@answer.question), local: true, method: :post do |f| # А так всё работает.
-= form_with model: [:admin, @answer], local: true do |f|# В том-то и дело что такая форма не определяет нифига! undefined method `admin_answers_path' выдаёт. Экшен не находит нужный. Чё б я стал бы тогда выдрючиваться и url всякий городить))))
+= form_with model: [:admin, @question, @answer], local: true do |f|
   = render 'shared/errors', resourse: @answer
   .field
     = f.label :body
