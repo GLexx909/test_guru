@@ -1,10 +1,13 @@
-h1 The #{ @test_passage.test.title } Test was Completed!
+/ h1 The #{ @test_passage.test.title } Test was Completed!
+h1 = t('.header', title: @test_passage.test.title)
 - if @test_passage.success?
   .percent
-    div Test failed. Correct answers:
+    div
+      = t('.test_failed')
     .win #{@test_passage.correct_percent.to_i}%
 - else
   .percent
-    div Test passed. Correct answers:
+    div
+      = t('.test_passed')
     .lose #{@test_passage.correct_percent.to_i}%
-= link_to 'Tests list', tests_path(@test_passage.test)
+= link_to t('.test_list'), tests_path(@test_passage.test)

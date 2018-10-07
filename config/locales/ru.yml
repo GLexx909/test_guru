@@ -1,0 +1,138 @@
+ru:
+  helpers:
+    submit:
+      test:
+        create: "Создать тест"
+        update: "Обновить тест"
+      question:
+        create: "Создать вопрос"
+        update: "Сохранить изменения"
+      answer:
+        create: "Создать вопрос"
+        update: "Сохранить изменения"
+    label:
+      test:
+        title: "Заголовок"
+        level: "Уровень сложности"
+        category_id: "Категория"
+      question:
+        body: "Вопрос"
+      answer:
+        body: "Ответ"
+        correct: "Верен"
+    select:
+      prompt: "Выберите категорию:"  
+
+  shared:
+    errors:
+      header:
+        few: "Обнаружено %{count} ошибки"
+        many: "Обнаружено %{count} ошибок"
+        one: "Обнаружено %{count} ошибка"
+        other: "Обнаружено %{count} ошибки"
+
+  tests:
+    index:
+      header: "Все тесты"
+      tests_column: "Тест"
+      level_column: "Уровень"
+      question_column: "Кол-во вопросов"
+      actions_column: "Действия"
+    test:
+      start: "Начать"
+
+  test_passages:
+    result:
+      header: "Тест %{title} успешно завершён!"
+      test_failed: "Тест провален. Кол-во правильных ответов:"
+      test_passed: "Тест пройден. Кол-во правильных ответов:"
+      test_list: "Список тестов"
+    show:
+      passing: "Текущий тест: %{title}"
+      question: "Вопрос"
+      break_test: "Прервать тест"
+      next: "Следующий"
+
+  test_mailer:
+    completed_test:
+      subject: "Вы успешно завершили тест TestGuru!"
+
+  layouts:
+    application:
+      welcome_message: "Приветствую %{name} Guru!"
+      app_description: "Это приложение предназначено для прохождения тестов, которые покажут уровень ваших знаний по определенным темам.Это позволит вам понять, в каких областях знаний у вас есть проблемы.Если вам понравился ресурс, вы можете помочь этому проекту"
+      signout: "Выйти"
+      signup: "Регистрация"
+      login: "Войти"
+      thinknetica: "Учебный проект в онлайн-школе Thinknetica"
+    admin:
+      welcome_message: "Приветствую %{name} Guru!"
+      app_description: "Это приложение предназначено для прохождения тестов, которые покажут уровень ваших знаний по определенным темам.Это позволит вам понять, в каких областях знаний у вас есть проблемы.Если вам понравился ресурс, вы можете помочь этому проекту"
+      signout: "Выйти"
+      signup: "Регистрация"
+      login: "Войти"
+      thinknetica: "Учебный проект в онлайн-школе Thinknetica"
+
+  devise:
+    confirmations:
+      new:
+        header: "Отправить инструкции по подтверждению "
+    registrations:
+      new:
+        header: "Регистрация"
+    sessions:
+      new:
+        header: "Вход"
+
+  admin:
+    tests:
+      test:
+        show: "Показать"
+        delete: "Удалить"
+        start: "Старт"
+      create:
+        success: "Тест создан"
+      index:
+        new_test: "Новый тест"
+        tests: "Тесты"
+        header: "Все тесты"
+        level: "Уровень"
+        question: "Вопросы"
+        actions: "Действия"
+      new:
+        header: "Новый тест"
+      form:
+        back: "Назад"
+      show:
+        create_new_question: "Создать новый вопрос"
+        back_to_tests: "Назад к списку тестов"
+    answers:
+      answer:
+        show: "Показать"
+        edit: "Править"
+        delete: "Удалить"
+      show:
+        header: "Вопрос:"
+        edit: "Править"
+        back: "Назад"
+        answer: "Ответ: "
+        correct: "Верный: "
+      edit:
+        show: " Показать"
+        back: "Назад "
+        header: "править ответ"
+      new:
+        back: "Назад"
+        header: "Новый ответ"
+    questions:
+      form:
+        back: "Назад"
+      question:
+        edit: "Править"
+        delete: "Удалить"
+        show: " Показать"
+      show:
+        new_answer: "Новый ответ"
+        edit: "Править"
+        back: "Назад"
+        answer: "Ответ"

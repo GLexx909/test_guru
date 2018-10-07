@@ -34,6 +34,9 @@ gem 'slim-rails'
 #AUTH
 gem 'devise'
 
+#LOCALIZATION
+gem 'rails-i18n'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
