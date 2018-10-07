@@ -1,5 +1,4 @@
-/ = form_with model: [:admin, @test], local: true do |form|
-= form_with url: admin_tests_path(@test), local: true, method: :post do |form|
+= form_with model: [:admin, @test], local: true do |form|
   = render 'shared/errors', resourse: @test
 
   .field
@@ -13,4 +12,5 @@
     = form.collection_select :category_id, Category.all, :id, :title, prompt: true
   .actions
     = form.submit
-/ = link_to 'Back', admin_test_path(@question.test)
+
+= link_to t('.back'), admin_tests_path(@test)

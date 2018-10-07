@@ -16,17 +16,17 @@ html
           .nav__container
             - if user_signed_in?
               .nav__nav__container__signout
-                b = link_to 'Signout',  destroy_user_session_path, method: :delete
+                b = link_to t('.signout'),  destroy_user_session_path, method: :delete
             - else
               .nav__nav__container__signup
-                b = link_to 'Signup', new_user_registration_path
+                b = link_to t('.signup'), new_user_registration_path
               .nav__nav__container__login
-                b = link_to 'Login', new_user_session_path
+                b = link_to t('.login'), new_user_session_path
 
       .leftSide
       main
         .main__logged
-          p = welcome_message
+          p = t('.welcome_message', name: current_user.name) if user_signed_in?
 
         = render 'shared/flash'
 
@@ -36,11 +36,7 @@ html
       footer
         .leftFooter
           .description
-            |This app is designed to pass tests that will show the level of
-            |your knowledge in certain topics.
-            |This will allow you to understand in what areas of knowledge you
-            |have problems.
-            |If you like the resource, you can help this project.
+            = t('.app_description')
             = link_to "Donate", '#'
         .rightFooter
           .links

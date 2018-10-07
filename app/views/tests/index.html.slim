@@ -1,7 +1,8 @@
 table border="2px"
+  caption = t('.header')
   tr
-    th Tests
-    th Level
-    th Questions
-    th Actions
+    th = t('.tests_column')
+    th = t('.level_column')
+    th = t('.question_column')
+    th = t('.actions_column')
   = render @tests
