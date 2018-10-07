@@ -1,0 +1,10 @@
+= form_with model: [:admin, @question, @answer], local: true do |f|
+  = render 'shared/errors', resourse: @answer
+  .field
+    = f.label :body
+    = f.text_area :body, id: :answer_body, rows: 5, cols: 50
+  .field
+    = f.label :correct
+    = f.check_box :correct, id: :answer_correct
+  .actions
+    = f.submit 'Сохранить'

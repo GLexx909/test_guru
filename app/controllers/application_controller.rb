@@ -1,27 +1,21 @@
 class ApplicationController < ActionController::Base
 
-  helper_method :current_user,
-                :user_signed_in?
+  before_action :configure_sign_up_and_account_update_params, if: :devise_controller?
 
-  private
+  protected
 
-  def authenticate_user!
-    unless current_user
-      redirect_to login_path, alert: 'Verify your entered data'
-      cookies_path(request.fullpath) 
-    end
-  end
+   def after_sign_in_path_for(resource)
+     if resource.admin?
+       admin_tests_path
+     else
+       super
+     end
 
-  def current_user
-    @current_user ||= User.find_by(id: session[:user_id]) if session[:user_id]
-  end
+   end
 
-  def user_signed_in?
-    current_user.present?
-  end
-
-  def cookies_path(path)
-    cookies[:path] = path
-  end
+   def configure_sign_up_and_account_update_params
+     devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :last_name])
+     devise_parameter_sanitizer.permit(:account_update, keys: [:name, :last_name])
+   end
 
 end

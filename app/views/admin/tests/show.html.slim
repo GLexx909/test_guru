@@ -7,6 +7,6 @@ table border="2px"
   tr
     th Questions
     th colspan='3' Actions
-  = render @test.questions
-div = link_to 'Create new question', new_test_question_path(@test)
-div = link_to 'Back to Tests', tests_path
+  = render partial: 'questions/question', collection: @test.questions
+div = link_to 'Create new question', new_admin_test_question_path(@test)
+div = link_to 'Back to Tests', admin_tests_path

@@ -1,0 +1,16 @@
+/ = form_with model: [:admin, @test], local: true do |form|
+= form_with url: admin_tests_path(@test), local: true, method: :post do |form|
+  = render 'shared/errors', resourse: @test
+
+  .field
+     = form.label :title
+     = form.text_field :title
+  .field
+    = form.label :level
+    = form.number_field :level
+  .field
+    = form.label :category_id
+    = form.collection_select :category_id, Category.all, :id, :title, prompt: true
+  .actions
+    = form.submit
+/ = link_to 'Back', admin_test_path(@question.test)
