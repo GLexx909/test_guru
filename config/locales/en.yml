@@ -1,33 +1,136 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# The following keys must be escaped otherwise they will not be retrieved by
-# the default I18n backend:
-#
-# true, false, on, off, yes, no
-#
-# Instead, surround them with single quotes.
-#
-# en:
-#   'true': 'foo'
-#
-# To learn more, please read the Rails Internationalization guide
-# available at http://guides.rubyonrails.org/i18n.html.
-
 en:
-  hello: "Hello world"
+  helpers:
+    submit:
+      test:
+        create: "Create test"
+        update: "Edit test"
+      question:
+        create: "Create question"
+        update: "Edit question"
+      answer:
+        create: "Create answer"
+        update: "Edit answer"
+    label:
+      test:
+        title: "Title"
+        level: "Level"
+        category_id: "Category"
+      question:
+        body: "Question"
+      answer:
+        body: "Answer"
+        correct: "Correct"
+    select:
+      prompt: "Choose category:"
+
+  shared:
+    errors:
+      header:
+        one: "%{count} error detected"
+        other: "%{count} errors detected"
+
+  tests:
+    index:
+      header: "All tests"
+      tests_column: "Test"
+      level_column: "Level"
+      question_column: "Questions count"
+      actions_column: "Actions"
+    test:
+      start: "Start"
+
+  test_passages:
+    result:
+      header: "The %{title} test was completed!"
+      test_failed: "Test failed. Correct answers:"
+      test_passed: "Test passed. Correct answers:"
+      test_list: "Test list"
+    show:
+      passing: "Passing Test: %{title}"
+      question: "Question"
+      break_test: "Break Test"
+      next: "Next"
+
+  test_mailer:
+    completed_test:
+      subject: "You just completed the TestGuru test!"
+
+  layouts:
+    application:
+      welcome_message: "Welcome %{name} Guru!"
+      app_description: "This app is designed to pass tests that will show the level ofyour knowledge in certain topics.This will allow you to understand in what areas of knowledge youhave problems.If you like the resource, you can help this project"
+      signout: "Signout"
+      signup: "Signup"
+      login: "Login"
+      thinknetica: "Training project in the Thinknetica"
+    admin:
+      welcome_message: "Welcome %{name} Guru!"
+      app_description: "This app is designed to pass tests that will show the level ofyour knowledge in certain topics.This will allow you to understand in what areas of knowledge youhave problems.If you like the resource, you can help this project"
+      signout: "Signout"
+      signup: "Signup"
+      login: "Login"
+      thinknetica: "Training project in the Thinknetica"
+
+  devise:
+    confirmations:
+      new:
+        header: "Resend confirmation instructions"
+    registrations:
+      new:
+        header: "Sign Up"
+    sessions:
+      new:
+        header: "Log in"
+
+  admin:
+    tests:
+      test:
+        show: "Show"
+        delete: "Delete"
+        start: "Start"
+      create:
+        success: "Test was successfully created"
+      index:
+        header: "All tests"
+        tests: "Test"
+        new_test: "New test"
+        level: "Level"
+        question: "Question"
+        actions: "Actions"
+      new:
+        header: "New test"
+      form:
+        back: "Back"
+      show:
+        create_new_question: "Create new question"
+        back_to_tests: "Back to Tests"
+    answers:
+      answer:
+        show: "Show"
+        edit: "Edit"
+        delete: "Delete"
+      show:
+        header: "Question:"
+        edit: "Edit"
+        back: "Back"
+        answer: "Answer: "
+        correct: "Correct: "
+      edit:
+        show: "Show"
+        back: "Back"
+        header: "Edit answer"
+      new:
+        back: "Back"
+        header: "New answer"
+    questions:
+      form:
+        back: "Back"
+      question:
+        edit: "Edit"
+        delete: "Delete"
+        show: " Show"
+      show:
+        new_answer: "New Answer"
+        edit: "Edit"
+        back: "Delete"
+        answer: "Answer"

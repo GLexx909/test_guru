@@ -1,5 +1,4 @@
-h2
-  | Log in
+h2 = t('.header')
 / = form_for(resource, as: resource_name, url: user_session_path(resource_name)) do |f|
 = form_for(resource, as: resource_name, url: user_session_path) do |f|
   .field

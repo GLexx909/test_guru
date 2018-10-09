@@ -1,9 +1,8 @@
-h1
-  | Passing the
-  = @test_passage.test.title
-  | Test
+h1 = t('.passing', title: @test_passage.test.title)
 
-p Question #{@test_passage.questions_counter} of #{@test_passage.test.questions.count}
+p
+  = t('.question')
+  |  #{@test_passage.questions_counter} of #{@test_passage.test.questions.count}
 
 b = @test_passage.current_question.body
 
@@ -12,5 +11,5 @@ b = @test_passage.current_question.body
     .field
       = b.check_box id: "answer_ids_#{b.object.id}"
       = b.label
-  = form.submit 'Next'
-= link_to 'Break the Test', tests_path
+  = form.submit t('.next')
+= link_to t('.break_test'), tests_path

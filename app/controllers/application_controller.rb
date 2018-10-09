@@ -1,6 +1,11 @@
 class ApplicationController < ActionController::Base
 
   before_action :configure_sign_up_and_account_update_params, if: :devise_controller?
+  before_action :set_locale
+
+  def default_url_options
+    { locale: ((I18n.locale == I18n.default_locale) ? nil : I18n.locale) }
+  end
 
   protected
 
@@ -16,6 +21,10 @@ class ApplicationController < ActionController::Base
    def configure_sign_up_and_account_update_params
      devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :last_name])
      devise_parameter_sanitizer.permit(:account_update, keys: [:name, :last_name])
+   end
+
+   def set_locale
+     I18n.locale = I18n.locale_available?(params[:locale]) ? params[:locale] : I18n.default_locale
    end
 
 end
