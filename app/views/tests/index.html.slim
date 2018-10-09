@@ -1,8 +1,9 @@
-table border="2px"
-  caption = t('.header')
-  tr
-    th = t('.tests_column')
-    th = t('.level_column')
-    th = t('.question_column')
-    th = t('.actions_column')
+table.table
+  caption style='caption-side:top' = t('.header')
+  thead
+    tr
+      th = t('.tests_column')
+      th = t('.level_column')
+      th = t('.question_column')
+      th = t('.actions_column')
   = render @tests

@@ -11,7 +11,7 @@ class Users::SessionsController < Devise::SessionsController
   # POST /resource/sign_in
   def create
     super
-    flash[:notice] = "Hello #{current_user.name}" #Наверное может в sessions_helper можно вынести (видоизменив) и во вьюзу засунуть, но его(хелпера) нет. Как правильно?
+    flash[:success] = "Hello #{current_user.name}" #Наверное может в sessions_helper можно вынести (видоизменив) и во вьюзу засунуть, но его(хелпера) нет. Как правильно?
   end
 
   # DELETE /resource/sign_out

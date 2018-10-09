@@ -1,0 +1,15 @@
+nav.navbar.navbar-light.bg-light.nav
+  .navbar-brand
+    = link_to 'TEST GURU', admin_tests_path
+  span.navbar_text
+    - if user_signed_in?
+      = link_to t('admin.nav.control_panel'), root_path
+      = link_to t('admin.tests.index.new_test'), new_admin_test_path
+      = t('layouts.admin.welcome_message', name: current_user.name)
+      / .nav-item.nav__nav__container__signout
+      b = link_to t('layouts.admin.signout'), destroy_user_session_path, method: :delete
+    - else
+      / .nav-item.nav__nav__container__signup
+      b = link_to t('layouts.admin.signup'), new_user_registration_path
+      / .nav-item.nav__nav__container__login
+      b = link_to t('layouts.admin.login'), new_user_session_path
