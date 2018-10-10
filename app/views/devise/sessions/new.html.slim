@@ -1,18 +1,24 @@
-h2 = t('.header')
-/ = form_for(resource, as: resource_name, url: user_session_path(resource_name)) do |f|
-= form_for(resource, as: resource_name, url: user_session_path) do |f|
-  .field
-    = f.label :email
-    br
-    = f.email_field :email, autofocus: true, autocomplete: "email"
-  .field
-    = f.label :password
-    br
-    = f.password_field :password, autocomplete: "current-password"
-  - if devise_mapping.rememberable?
-    .field
-      = f.check_box :remember_me
-      = f.label :remember_me
-  .actions
-    = f.submit "Log in"
-= render "devise/shared/links"
+.row.justify-content-center
+  .col.col-md-4
+    h2 = t('.header')
+    .card.border-primary
+      .card-body
+        = form_for(resource, as: resource_name, url: user_session_path) do |f|
+          .form-group
+            p
+              = f.label :email
+              = f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control', placeholder: 'Enter email'
+
+            p
+              = f.label :password
+              = f.password_field :password, autocomplete: "current-password", class: 'form-control', placeholder: 'Password'
+
+            - if devise_mapping.rememberable?
+              .form-check
+                = f.label :remember_me, class: 'form-check-label' do
+                  = f.check_box :remember_me, class: 'form-check-input'
+                  = t('.remember_me')
+
+            = f.submit t('shared.nav.login'), class: 'btn btn-primary'
+
+    = render "devise/shared/links"

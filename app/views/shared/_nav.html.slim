@@ -1,0 +1,13 @@
+nav.navbar.navbar-light.bg-light.nav
+  .navbar-brand
+    = link_to 'TEST GURU', root_path
+  span.navbar_text
+    - if user_signed_in?
+      = t('.welcome_message', name: current_user.name) if user_signed_in?
+      / .nav-item.nav__nav__container__signout
+      b = link_to t('.signout'),  destroy_user_session_path, method: :delete
+    - else
+      / .nav-item.nav__nav__container__signup
+      b = link_to t('.signup'), new_user_registration_path
+      / .nav-item.nav__nav__container__login
+      b = link_to t('.login'), new_user_session_path

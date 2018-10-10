@@ -1,0 +1,17 @@
+nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
+  .navbar-brand = link_to 'TEST GURU', admin_tests_path
+  #navbarResponsive.collapse.navbar-collapse
+    ul.navbar-nav.ml-auto
+      - if user_signed_in?
+        li.nav-item = t('layouts.admin.welcome_message', name: current_user.name)
+        li.nav-item
+          = link_to t('admin.nav.control_panel'), admin_tests_path, class: 'nav-link active'
+        li.nav-item
+          = link_to t('admin.tests.index.new_test'), new_admin_test_path, class: 'nav-link active'
+        li.nav-item
+          = link_to t('layouts.admin.signout'), destroy_user_session_path, method: :delete, class: 'nav-link active'
+      - else
+        li.nav-item
+          = link_to t('layouts.admin.signup'), new_user_registration_path, class: 'nav-link active'
+        li.nav-item
+          = link_to t('layouts.admin.login'), new_user_session_path, class: 'nav-link active'

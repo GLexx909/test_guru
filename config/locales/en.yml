@@ -28,6 +28,12 @@ en:
       header:
         one: "%{count} error detected"
         other: "%{count} errors detected"
+    nav:
+      welcome_message: "Welcome %{name} Guru!"
+      signout: "Signout"
+      signup: "Signup"
+      login: "Login"
+
 
   tests:
     index:
@@ -57,11 +63,7 @@ en:
 
   layouts:
     application:
-      welcome_message: "Welcome %{name} Guru!"
       app_description: "This app is designed to pass tests that will show the level ofyour knowledge in certain topics.This will allow you to understand in what areas of knowledge youhave problems.If you like the resource, you can help this project"
-      signout: "Signout"
-      signup: "Signup"
-      login: "Login"
       thinknetica: "Training project in the Thinknetica"
     admin:
       welcome_message: "Welcome %{name} Guru!"
@@ -81,8 +83,11 @@ en:
     sessions:
       new:
         header: "Log in"
+        remember_me: "Remember me"
 
   admin:
+    nav:
+      control_panel: "Control panel"
     tests:
       test:
         show: "Show"

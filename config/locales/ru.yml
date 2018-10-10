@@ -21,7 +21,7 @@ ru:
         body: "Ответ"
         correct: "Верен"
     select:
-      prompt: "Выберите категорию:"  
+      prompt: "Выберите категорию:"
 
   shared:
     errors:
@@ -30,6 +30,11 @@ ru:
         many: "Обнаружено %{count} ошибок"
         one: "Обнаружено %{count} ошибка"
         other: "Обнаружено %{count} ошибки"
+    nav:
+      welcome_message: "Приветствую %{name} Guru!"
+      signout: "Выйти"
+      signup: "Регистрация"
+      login: "Войти"
 
   tests:
     index:
@@ -59,11 +64,7 @@ ru:
 
   layouts:
     application:
-      welcome_message: "Приветствую %{name} Guru!"
       app_description: "Это приложение предназначено для прохождения тестов, которые покажут уровень ваших знаний по определенным темам.Это позволит вам понять, в каких областях знаний у вас есть проблемы.Если вам понравился ресурс, вы можете помочь этому проекту"
-      signout: "Выйти"
-      signup: "Регистрация"
-      login: "Войти"
       thinknetica: "Учебный проект в онлайн-школе Thinknetica"
     admin:
       welcome_message: "Приветствую %{name} Guru!"
@@ -83,8 +84,11 @@ ru:
     sessions:
       new:
         header: "Вход"
+        remember_me: "Запомни меня"
 
   admin:
+    nav:
+      control_panel: "Панель управления"
     tests:
       test:
         show: "Показать"

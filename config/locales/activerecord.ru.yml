@@ -2,7 +2,14 @@ ru:
   activerecord:
     models:
       test: 'Тест'
+      user: "Пользователь"
     attributes:
+      user:
+        name: "Имя"
+        last_name: "Фамилия"
+        email: "Почта"
+        password: "Пароль"
+        password_confirmation: "Подтверждение пароля"
       test:
         title: 'Название'
         category: 'Категория'
