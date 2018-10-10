@@ -2,6 +2,7 @@ ru:
   activerecord:
     models:
       test: 'Тест'
+      user: "Пользователь"
     attributes:
       user:
         name: "Имя"

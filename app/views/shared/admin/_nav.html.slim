@@ -1,15 +1,34 @@
-nav.navbar.navbar-light.bg-light.nav
-  .navbar-brand
-    = link_to 'TEST GURU', admin_tests_path
-  span.navbar_text
-    - if user_signed_in?
-      = link_to t('admin.nav.control_panel'), root_path
-      = link_to t('admin.tests.index.new_test'), new_admin_test_path
-      = t('layouts.admin.welcome_message', name: current_user.name)
-      / .nav-item.nav__nav__container__signout
-      b = link_to t('layouts.admin.signout'), destroy_user_session_path, method: :delete
-    - else
-      / .nav-item.nav__nav__container__signup
-      b = link_to t('layouts.admin.signup'), new_user_registration_path
-      / .nav-item.nav__nav__container__login
-      b = link_to t('layouts.admin.login'), new_user_session_path
+/ nav.navbar.navbar-expand-lg.navbar-dark.bg-dark.fixed-top
+/   = link_to 'TEST GURU', admin_tests_path, class: 'navbar-brand'
+/   span.navbar-text.ml-auto
+/     ul
+/       - if user_signed_in?
+/         li = link_to t('admin.nav.control_panel'), admin_tests_path
+/         li = link_to t('admin.tests.index.new_test'), new_admin_test_path
+/         li = t('layouts.admin.welcome_message', name: current_user.name)
+/         / .nav-item.nav__nav__container__signout
+/         li = link_to t('layouts.admin.signout'), destroy_user_session_path, method: :delete
+/       - else
+/         / .nav-item.nav__nav__container__signup
+/         li = link_to t('layouts.admin.signup'), new_user_registration_path
+/         / .nav-item.nav__nav__container__login
+/         li = link_to t('layouts.admin.login'), new_user_session_path
+
+
+nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
+  .navbar-brand = link_to 'TEST GURU', admin_tests_path
+  #navbarResponsive.collapse.navbar-collapse
+    ul.navbar-nav.ml-auto
+      - if user_signed_in?
+        li.nav-item = t('layouts.admin.welcome_message', name: current_user.name)
+        li.nav-item
+          = link_to t('admin.nav.control_panel'), admin_tests_path, class: 'nav-link active'
+        li.nav-item
+          = link_to t('admin.tests.index.new_test'), new_admin_test_path, class: 'nav-link active'
+        li.nav-item
+          = link_to t('layouts.admin.signout'), destroy_user_session_path, method: :delete, class: 'nav-link active'
+      - else
+        li.nav-item
+          = link_to t('layouts.admin.signup'), new_user_registration_path, class: 'nav-link active'
+        li.nav-item
+          = link_to t('layouts.admin.login'), new_user_session_path, class: 'nav-link active'

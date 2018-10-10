@@ -2,6 +2,7 @@ class TestsController < ApplicationController
 
   before_action :authenticate_user!
   before_action :find_test, only: :start
+  before_action :redirect_to_admin_path, only: :index
 
   def index
     @tests = Test.all
@@ -20,6 +21,10 @@ class TestsController < ApplicationController
 
   def find_test
     @test = Test.find(params[:id])
+  end
+
+  def redirect_to_admin_path
+    redirect_to admin_tests_path if current_user.admin?
   end
 
 end

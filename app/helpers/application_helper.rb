@@ -8,8 +8,4 @@ module ApplicationHelper
     link_to 'TestGuru', "https://github.com/#{author}/#{repo}", target: '_blank'
   end
 
-  # def welcome_message
-  #   "Welcome #{ current_user.name } Guru" if user_signed_in?
-  # end
-
 end
