@@ -34,6 +34,9 @@ gem 'slim-rails'
 #AUTH
 gem 'devise'
 
+#NETWORKING
+gem 'faraday'
+
 #LOCALIZATION
 gem 'rails-i18n'
 

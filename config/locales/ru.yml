@@ -57,6 +57,9 @@ ru:
       question: "Вопрос"
       break_test: "Прервать тест"
       next: "Следующий"
+    gist:
+      success: "Gist успешно сохранён"
+      failure: "Во время сохранения Gist произошла ошибка"
 
   test_mailer:
     completed_test:

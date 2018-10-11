@@ -56,6 +56,9 @@ en:
       question: "Question"
       break_test: "Break Test"
       next: "Next"
+    gist:
+      success: "Gist was successfully created"
+      failure: "An error occured while saving gist"
 
   test_mailer:
     completed_test:
