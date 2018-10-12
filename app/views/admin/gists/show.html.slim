@@ -1,0 +1,15 @@
+p#notice = notice
+
+p
+  b Url:
+  = @gist.url
+p
+  b User:
+  = @gist.user.email
+p
+  b Question:
+  = @gist.question.body
+
+= link_to 'Edit', edit_gist_path(@gist)
+'|
+= link_to 'Back', gists_path

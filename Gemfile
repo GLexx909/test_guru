@@ -36,6 +36,7 @@ gem 'devise'
 
 #NETWORKING
 gem 'faraday'
+gem 'octokit', '~> 4.0'
 
 #LOCALIZATION
 gem 'rails-i18n'
@@ -43,6 +44,9 @@ gem 'rails-i18n'
 #UI
 gem 'jquery-rails'
 gem 'bootstrap', '~> 4.1'
+
+#ENV
+gem 'dotenv-rails'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

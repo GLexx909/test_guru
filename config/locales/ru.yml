@@ -143,3 +143,7 @@ ru:
         edit: "Править"
         back: "Назад"
         answer: "Ответ"
+  lib:
+    clients:
+      git_hub_client:
+        description: "Вопрос о %{title} от TestGuru"

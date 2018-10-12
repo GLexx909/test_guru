@@ -7,6 +7,8 @@ nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
         li.nav-item
           = link_to t('admin.nav.control_panel'), admin_tests_path, class: 'nav-link active'
         li.nav-item
+          = link_to 'Gists', admin_gists_path, class: 'nav-link active'
+        li.nav-item
           = link_to t('admin.tests.index.new_test'), new_admin_test_path, class: 'nav-link active'
         li.nav-item
           = link_to t('layouts.admin.signout'), destroy_user_session_path, method: :delete, class: 'nav-link active'
@@ -15,4 +17,3 @@ nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
           = link_to t('layouts.admin.signup'), new_user_registration_path, class: 'nav-link active'
         li.nav-item
           = link_to t('layouts.admin.login'), new_user_session_path, class: 'nav-link active'
- 
