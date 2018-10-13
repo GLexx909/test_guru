@@ -21,11 +21,16 @@ class TestPassagesController < ApplicationController
   end
 
   def gist
-    @result = GistQuestionService.new(@test_passage.current_question).call
+    question = @test_passage.current_question
 
-    save_gist_on_db
+    @result = GistQuestionService.new(question).call
 
-    flash_options = @result.success? ? {notice: result.git_pull_url} : {alert: t('.failure')} #Эта гадина success не проходит, хотя gist отправляется. И url формируется. Проверено. Выводит alert: .failure
+    if @result
+      flash_options = {notice: @result.git_pull_url}
+      Gist.create(url: @result.git_pull_url, user: current_user, question: question)
+    else
+      flash_options = {alert: t('.failure')}
+    end
 
     redirect_to @test_passage, flash_options
   end
@@ -34,10 +39,6 @@ class TestPassagesController < ApplicationController
 
   def find_test_passage
     @test_passage = TestPassage.find(params[:id])
-  end
-
-  def save_gist_on_db
-    Gist.create(url: @result.git_pull_url, user: current_user, question: @test_passage.current_question)
   end
 
 end

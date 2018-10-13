@@ -1,9 +1,9 @@
 class GistQuestionService
 
-  def initialize(question, client: nil)
+  def initialize(question, client: default_client)
     @question = question
     @test = @question.test
-    @client = client || Octokit::Client.new(access_token: access_token)
+    @client = client
   end
 
   def call
@@ -14,7 +14,7 @@ class GistQuestionService
 
   def gist_params
     {
-      description: I18n.t('lib.clients.git_hub_client.description', title: @test.title),
+      description: I18n.t('clients.git_hub_client.description', title: @test.title),
       public: true,
       files: {
         'test-guru-question.txt'=> {
@@ -25,15 +25,17 @@ class GistQuestionService
   end
 
   def gist_content
-    content = [@question.body]
-    content += @question.answers.pluck(:body)
-    content.join("\n")
+    [@question.body, *@question.answers.pluck(:body)].join("\n")
   end
 
   private
 
-  def access_token
-    ENV['ACCESS_TOKEN'] #Хотел в модель запихнуть в initializer, только не сообразил как потом здесь Octokit::Client.new(access_token: access_token) вызвать.
+
+  def default_client
+    Octokit::Client.new(access_token: access_token)
   end
 
+  def access_token
+    ENV['ACCESS_TOKEN']
+  end
 end
