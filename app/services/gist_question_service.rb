@@ -1,5 +1,17 @@
 class GistQuestionService
 
+  class ResultObject
+    delegate :html_url, :id, to: :@client_response
+
+    def initialize(client_response)
+      @client_response = client_response
+    end
+
+    def success?
+      html_url.present?
+    end
+  end
+
   def initialize(question, client: default_client)
     @question = question
     @test = @question.test
@@ -7,14 +19,15 @@ class GistQuestionService
   end
 
   def call
-    @client.create_gist(gist_params)
+    response = @client.create_gist(gist_params)
+    ResultObject.new(response)
   end
 
   private
 
   def gist_params
     {
-      description: I18n.t('clients.git_hub_client.description', title: @test.title),
+      description: I18n.t('services.git_question_service.description', title: @test.title),
       public: true,
       files: {
         'test-guru-question.txt'=> {

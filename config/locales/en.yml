@@ -142,7 +142,7 @@ en:
         edit: "Edit"
         back: "Delete"
         answer: "Answer"
-  lib:
-    clients:
-      git_hub_client:
-        description: "Question about %{title} from TestGuru"
+
+  services:
+    git_question_service:
+      description: "Question about %{title} from TestGuru"

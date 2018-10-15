@@ -15,9 +15,8 @@ table.table.table-striped
     - @gists.each do |gist|
       tr
         td= gist.user.email
-        td= link_to gist.url[24..-5], gist.url
-        / RegExp сейчас хочу сделать за место этого, но блин это долго.
-        / td= link_to gist.url.slice!(//)...
+        td= link_to gist.url, gist.url
+        / td= link_to gist.url.slice!(/^[https:\/\/gist.github.com\/]+(.*)\.git$/)
         td= gist.question.body.truncate(25)
         td= link_to 'Show', admin_question_path(gist.question)
         / td= link_to 'Edit', edit_admin_gist_path(gist)

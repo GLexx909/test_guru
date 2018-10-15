@@ -144,6 +144,6 @@ ru:
         back: "Назад"
         answer: "Ответ"
 
-  clients:
-    git_hub_client:
+  services:
+    git_question_service:
       description: "Вопрос о %{title} от TestGuru"
