@@ -3,9 +3,11 @@ nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
   #navbarResponsive.collapse.navbar-collapse
     ul.navbar-nav.ml-auto
       - if user_signed_in?
-        li.nav-item = t('layouts.admin.welcome_message', name: current_user.name)
+        li.nav-item.align-self-center.text-white = t('layouts.admin.welcome_message', name: current_user.name)
         li.nav-item
           = link_to t('admin.nav.control_panel'), admin_tests_path, class: 'nav-link active'
+        li.nav-item
+          = link_to 'Gists', admin_gists_path, class: 'nav-link active'
         li.nav-item
           = link_to t('admin.tests.index.new_test'), new_admin_test_path, class: 'nav-link active'
         li.nav-item

@@ -38,15 +38,13 @@ main {
 }
 
 footer {
-  position: absolute;
-  bottom: 0;
-  grid-area: footer;
-  background-color: #052433;
-
-  display: grid;
-  grid-template-areas:  'leftFooter rightFooter';
-  grid-template-columns: 40% 60%;
-  grid-template-rows: auto;
+  // grid-area: footer;
+  // background-color: #052433;
+  //
+  // display: grid;
+  // grid-template-areas:  'leftFooter rightFooter';
+  // grid-template-columns: 40% 60%;
+  // grid-template-rows: auto;
   color: white;
 }
 

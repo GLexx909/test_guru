@@ -1,0 +1,27 @@
+h1 Listing gists
+
+
+table.table.table-striped
+  thead.thead-dark
+    tr
+      th User
+      th Url
+      th Question
+      th
+      / th
+      / th
+
+  tbody
+    - @gists.each do |gist|
+      tr
+        td= gist.user.email
+        td= link_to gist.url, gist.url
+        / td= link_to gist.url.slice!(/^[https:\/\/gist.github.com\/]+(.*)\.git$/)
+        td= gist.question.body.truncate(25)
+        td= link_to 'Show', admin_question_path(gist.question)
+        / td= link_to 'Edit', edit_admin_gist_path(gist)
+        / td= link_to 'Destroy', admin_gist_path(gist), :confirm => 'Are you sure?', :method => :delete
+
+br
+
+/ = link_to 'New Gist', new_gist_path
