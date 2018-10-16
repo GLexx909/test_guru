@@ -92,10 +92,13 @@ en:
     nav:
       control_panel: "Control panel"
     tests:
+      form_inline:
+        submit: 'Ok'
       test:
         show: "Show"
         delete: "Delete"
         start: "Start"
+        edit: "Edit"
       create:
         success: "Test was successfully created"
       index:
