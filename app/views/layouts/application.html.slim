@@ -22,14 +22,14 @@ html
         = yield
 
     .rightSide
-    footer.fixed-bottom.navbar-dark.bg-dark
-      .leftFooter
-        .description
-          = t('.app_description')
-          = link_to "Donate", '#'
-      .rightFooter
-        .links
-          div  ©
-          div = curren_year
-          div = github_url('GLexx909', 'test_guru')
-          div = link_to t('.thinknetica'), 'http://thinknetica.com', target: '_blank'
+    footer.fixed-bottom.bg-dark.page-footer.text-center.text-md-left.mt-0
+      .container-fluid
+        .row
+          .col-md-6
+            p = t('.app_description')
+            .ml-1= link_to "Donate", '#'
+      .row.mx-auto.justify-content-center.mt-3
+        p.mr-1 ©
+        p.mr-1 = curren_year
+        p.mr-1 = github_url('GLexx909', 'test_guru')
+        p = link_to 'Учебный проект в онлайн-школе Thinknetica', 'http://thinknetica.com', target: '_blank'
