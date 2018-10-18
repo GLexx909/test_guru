@@ -28,7 +28,7 @@ ru:
       header:
         few: "Обнаружено %{count} ошибки"
         many: "Обнаружено %{count} ошибок"
-        one: "Обнаружено %{count} ошибка"
+        one: "Обнаружена %{count} ошибка"
         other: "Обнаружено %{count} ошибки"
     nav:
       welcome_message: "Приветствую %{name} Guru!"
@@ -93,10 +93,13 @@ ru:
     nav:
       control_panel: "Панель управления"
     tests:
+      form_inline:
+        submit: 'Ok'
       test:
         show: "Показать"
         delete: "Удалить"
         start: "Старт"
+        edit: "Править"
       create:
         success: "Тест создан"
       index:
