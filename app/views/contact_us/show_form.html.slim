@@ -1,0 +1,4 @@
+= form_with url: 'contact_us/send_mail', local: true, method: :post do |form|
+  .field
+    = form.text_area :body
+  = form.submit 'Send'
