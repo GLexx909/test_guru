@@ -45,6 +45,11 @@ en:
     test:
       start: "Start"
 
+  contact_us:
+    send_mail:
+      success: "The message has been successfully sent!"
+      failure: "The message has not been sent."
+
   test_passages:
     result:
       header: "The %{title} test was completed!"
@@ -68,6 +73,7 @@ en:
     application:
       app_description: "This app is designed to pass tests that will show the level ofyour knowledge in certain topics.This will allow you to understand in what areas of knowledge youhave problems.If you like the resource, you can help this project"
       thinknetica: "Training project in the Thinknetica"
+      contact_us: "Contact us"
     admin:
       welcome_message: "Welcome %{name} Guru!"
       app_description: "This app is designed to pass tests that will show the level ofyour knowledge in certain topics.This will allow you to understand in what areas of knowledge youhave problems.If you like the resource, you can help this project"
