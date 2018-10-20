@@ -1,10 +1,10 @@
 h2 Сообщение от:
 p
-  = @user.email
+  | #{ @user.email }
 p
-  = @user.name
+  | #{ @user.name }
 p
-  = @user.last_name
+  | #{ @user.last_name }
 
 p Текст:
-= @message
+  | #{ @message }
