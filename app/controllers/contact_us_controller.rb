@@ -8,7 +8,7 @@ class ContactUsController < ApplicationController
     user = current_user
 
     ContactUsMailer.send_mail(user, message).deliver_now
-    redirect_to tests_path, notice: t('.success')
+    redirect_to tests_path,notice: t('.success')
   end
 
 end

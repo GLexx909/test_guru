@@ -1,10 +1,10 @@
-class ContactUsMailer < ApplicationMailer
+class ContactUsMailer < ActionMailer::Base
 
   def send_mail(user, message)
     @user = user
     @message = message
 
-    mail to: 'glexx909@gmail.com', from: user.email
+    mail to: 'glexx909@gmail.com',from: user.email
   end
 
 end
