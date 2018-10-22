@@ -15,6 +15,9 @@ class TestPassagesController < ApplicationController
     if @test_passage.completed?
       TestsMailer.completed_test(@test_passage).deliver_now
       redirect_to result_test_passage_path(@test_passage)
+
+      give_budges if @test_passage.success?
+
     else
       render :show
     end
@@ -39,6 +42,11 @@ class TestPassagesController < ApplicationController
 
   def find_test_passage
     @test_passage = TestPassage.find(params[:id])
+  end
+
+  def give_budges
+    badge = Badge.find_by_name('For any Test')
+    current_user.badge_issueds.create!(badge: badge) #Тестовый бадж, бужет удалён.
   end
 
 end

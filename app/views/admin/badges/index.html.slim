@@ -1,0 +1,13 @@
+h1 Bagdes#index
+
+/ = render 'shared/errors', resourse: @badge
+
+table.table.table-striped
+  caption style='caption-side:top' = t('.header')
+  thead.thead-dark
+    tr
+      th = "Name"
+      th = "Img"
+      th colspan='2' = "Actions"
+  tbody
+    = render @badges
