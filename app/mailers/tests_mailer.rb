@@ -1,10 +1,12 @@
 class TestsMailer < ApplicationMailer
+  default from: %{ "TestGuru" <glexx909@gmail.com> }
 
   def completed_test(test_passage)
+
     @user = test_passage.user
     @test = test_passage.test
 
-    mail to: @user.email, from: %{ "TestGuru" <glexx909@gmail.com> }
+    mail to: @user.email
   end
 
 end

@@ -47,7 +47,7 @@ ru:
       start: "Начать"
 
   contact_us:
-    send_mail:
+    create:
       success: "Сообщение отправлено удачно!"
       failure: "Сообщение не отправлено."
 

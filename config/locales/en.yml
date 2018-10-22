@@ -46,7 +46,7 @@ en:
       start: "Start"
 
   contact_us:
-    send_mail:
+    create:
       success: "The message has been successfully sent!"
       failure: "The message has not been sent."
 

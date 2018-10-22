@@ -17,8 +17,8 @@ Rails.application.routes.draw do
     end
   end
 
-  get 'contact_us', to: 'contact_us#show_form'
-  post 'contact_us/send_mail', to: 'contact_us#send_mail'
+  get 'contact_us', to: 'contact_us#show'
+  post 'contact_us/create', to: 'contact_us#create'
 
   namespace :admin do
     resources :tests do

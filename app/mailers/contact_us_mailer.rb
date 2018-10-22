@@ -1,10 +1,11 @@
 class ContactUsMailer < ActionMailer::Base
+  default to: -> {'glexx909@gmail.com'}
 
   def send_mail(user, message)
     @user = user
     @message = message
 
-    mail to: 'glexx909@gmail.com',from: user.email
+    mail from: %{ "TestGuru" }
   end
 
 end
