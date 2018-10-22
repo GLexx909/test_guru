@@ -24,10 +24,12 @@ html
     .rightSide
     footer.fixed-bottom.bg-dark.page-footer.text-center.text-md-left.mt-0
       .container-fluid
-        .row
-          .col-md-6
+        .row.d-flex.justify-content-between
+          .col-md-4
             p = t('.app_description')
             .ml-1= link_to "Donate", '#'
+          .col-md-2
+            strong = link_to t('.contact_us'), contact_us_path
       .row.mx-auto.justify-content-center.mt-3
         p.mr-1 ©
         p.mr-1 = curren_year
