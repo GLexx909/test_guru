@@ -1,2 +1,15 @@
 h1 Bagdes#edit
-p Find me in app/views/bagdes/edit.html.slim
+
+= form_with model: [:admin, @badge], local: true do |form|
+  = render 'shared/errors', resourse: @badge
+
+  .field
+     = form.label :name
+     = form.text_field :name
+  .field
+    = form.label :img
+    = form.text_field :img
+  .actions
+    = form.submit
+
+= link_to t('.back'), admin_badges_path(@badge)

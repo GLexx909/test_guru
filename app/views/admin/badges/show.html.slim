@@ -10,3 +10,5 @@ table.table.table-striped
   tr
     td.align-middle = @badge.name
     td.align-middle = image_tag @badge.img
+
+= link_to t('.back'), admin_badges_path(@badge)

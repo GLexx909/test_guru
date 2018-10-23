@@ -7,6 +7,8 @@ nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
         li.nav-item
           = link_to t('admin.nav.control_panel'), admin_tests_path, class: 'nav-link active'
         li.nav-item
+          = link_to t('admin.nav.badges'), admin_badges_path, class: 'nav-link active'
+        li.nav-item
           = link_to 'Gists', admin_gists_path, class: 'nav-link active'
         li.nav-item
           = link_to t('admin.tests.index.new_test'), new_admin_test_path, class: 'nav-link active'
