@@ -1,11 +1,10 @@
-h1 Bagdes#index
-
+= link_to 'Создать новую награду', new_admin_badge_path
 table.table.table-striped
-  caption style='caption-side:top' = t('.header')
+  caption style='caption-side:top' Награды
   thead.thead-dark
     tr
       th = "Name"
       th = "Img"
-      th colspan='2' = "Actions"
+      th colspan='3' = "Actions"
   tbody
     = render @badges

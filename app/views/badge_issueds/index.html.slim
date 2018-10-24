@@ -4,8 +4,10 @@ table.table.table-striped.table-sm
     tr
       th = "Name"
       th = "Img"
+      th = "Дата вручения"
   tbody
   - @badge_issueds.each do |badge_issued|
     tr
       td.align-middle = badge_issued.badge.name
       td.align-middle = image_tag badge_issued.badge.img
+      td.align-middle = badge_issued.created_at.strftime("%d %B %Y")

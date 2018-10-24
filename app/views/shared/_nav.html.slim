@@ -3,7 +3,7 @@ nav.navbar.navbar-expand-lg.navbar-light.bg-light
   #navbarResponsive.collapse.navbar-collapse
     ul.navbar-nav.ml-auto
       - if user_signed_in?
-        li.nav-item.align-self-center = t('.welcome_message', name: current_user.name) if user_signed_in?
+        li.nav-item.align-self-center = t('.welcome_message', name: current_user.name)
         li.nav-item = link_to "Награды", badges_path, class: 'nav-link active'
         li.nav-item = link_to t('.signout'),  destroy_user_session_path, method: :delete, class: 'nav-link active'
       - else
