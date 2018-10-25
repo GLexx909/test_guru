@@ -5,6 +5,23 @@ class TestPassage < ApplicationRecord
 
   before_save :before_save_set_next_question
 
+  # scope :by_category, -> (category) {
+  #                         joins(:test).
+  #                         where(tests: {category: category})}
+
+
+  # scope :only_success, -> { where(success: true) }
+  # scope :by_user, -> (user) { where(user: user) }
+
+  # scope :by_category, -> (category) { joins(:test).
+  #                                          where(tests: {category: category}) }
+  #
+  # def self.count_by_category(category)
+  #  by_category(category).uniq.count
+  # end
+
+   ######################################
+
   def completed?
     current_question.nil?
   end

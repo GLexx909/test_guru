@@ -12,7 +12,7 @@
         small id="emailHelp" class="form-text text-muted" Вставте URL адрес изобразения.
       .form-group
         = form.label :category
-        = form.collection_select :category, Category.all, :title, :title, prompt: true, class:"form-control"
+        = form.collection_select :category, Category.all, :title, :title, {prompt: true}, class:'form-control'
         small id="emailHelp" class="form-text text-muted" Можно оставить пустой. Выберите категорию, за прохождение которой будет награда.
       .form-group
         = form.label :level

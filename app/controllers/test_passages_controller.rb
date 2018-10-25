@@ -46,29 +46,15 @@ class TestPassagesController < ApplicationController
   end
 
   def give_budges
-    @badge_present = false
-    BadgeService.new.select_the_badges(@test_passage, current_user).each do |badge|
-      if badge.present?
-        current_user.badge_issueds.create!(badge: badge)
-        @badge_present = true
-      end
-    end
 
-    if @badge_present
-      flash[:notice] = 'Вы получили новые награды!'
+    service = BadgeService.new(@test_passage)
+    badges = service.call
+
+    badges.each do |badge|
+      current_user.badge_issueds.create!(badge: badge)
     end
+    flash[:notice] = "Hello" if badges.any?
+
   end
-
-
-
-
-
-
-
-
-
-
-
-
 
 end

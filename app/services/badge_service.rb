@@ -1,29 +1,45 @@
 class BadgeService
+  delegate :test_passage, to: :BadgeObject
 
-  def select_the_badges(current_test, user)
-
-    badges = Badge.all
-    desired_badges = []
-
-    #For successfully ended all test of certain category
-    category = current_test.test.category.title
-    if user.tests.distinct.where(category: category).count == Test.where(category: category).count
-      desired_badges << badges.find_by_category(category)
+  class BadgeObject
+    def initialize(badge)
+      @badge = badge
     end
 
-    #For successfully ended all test of certain level
-    level = current_test.test.level
-    if user.tests.distinct.where(level: level).count == Test.where(level: level).count
-      desired_badges << badges.find_by_level(level)
-    end
-
-    # For successfully ended Test on the first try
-    if current_test.unique?
-      desired_badges << badges.find(1) # Ну тут я уже не сообразил как иначе. Отдельный параметр(колонку) прописывать для БАДЖА с "особыми" пометками?
-    end
-
-
-    desired_badges
   end
 
+  def initialize(test_passage)
+    @test_passage = test_passage
+  end
+
+  def call
+    @badges_box = []
+    badges = Badge.all
+
+    badges.each do |badge_one|
+      badge_obj = BadgeObject.new(badge_one)
+
+      send(badge_one.rule_type.to_sym, badge_obj, *badge_one.param)
+      @badges_box << badge_one
+    end
+    @badges_box
+  end
+
+  private
+
+  def user_tests(badge_obj)
+    badge_obj.test_passage.user.tests.distinct
+  end
+
+  def for_category(badge_obj, category)
+    badge_obj.badge if user_tests(badge_obj).where(category: category).count == Test.where(category: category).count
+  end
+
+  def for_level(badge_obj, level)
+    badge_obj.badge if user_tests(badge_obj).where(level: level).count == Test.where(level: level.to_i).count
+  end
+
+  def first_attempt(badge_obj)
+    badge_obj.badge if badge_obj.test_passage.unique?
+  end
 end
