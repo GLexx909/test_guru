@@ -1,12 +1,6 @@
 class BadgeService
-  delegate :test_passage, to: :BadgeObject
 
-  class BadgeObject
-    def initialize(badge)
-      @badge = badge
-    end
-
-  end
+  attr_reader :test_passage
 
   def initialize(test_passage)
     @test_passage = test_passage
@@ -14,32 +8,30 @@ class BadgeService
 
   def call
     @badges_box = []
-    badges = Badge.all
 
-    badges.each do |badge_one|
-      badge_obj = BadgeObject.new(badge_one)
+    Badge.all.select do |badge|
 
-      send(badge_one.rule_type.to_sym, badge_obj, *badge_one.param)
-      @badges_box << badge_one
+      send(badge.rule_type, badge, *badge.param)
+      @badges_box << badge
     end
     @badges_box
   end
 
   private
 
-  def user_tests(badge_obj)
-    badge_obj.test_passage.user.tests.distinct
+  def user_tests
+    self.test_passage.user.tests.distinct
   end
 
-  def for_category(badge_obj, category)
-    badge_obj.badge if user_tests(badge_obj).where(category: category).count == Test.where(category: category).count
+  def for_category(badge, category)
+    badge if user_tests.where(category: category).count == Test.where(category: category).count
   end
 
-  def for_level(badge_obj, level)
-    badge_obj.badge if user_tests(badge_obj).where(level: level).count == Test.where(level: level.to_i).count
+  def for_level(badge, level)
+    badge if user_tests.where(level: level).count == Test.where(level: level).count
   end
 
-  def first_attempt(badge_obj)
-    badge_obj.badge if badge_obj.test_passage.unique?
+  def first_attempt(badge) # wrong number of arguments (given 1, expected 2), если указывать параметр _param. Без него работает всё.
+    badge if self.test_passage.unique?
   end
 end

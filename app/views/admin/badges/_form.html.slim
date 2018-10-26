@@ -11,13 +11,15 @@
         = form.text_field :img, class:"form-control"
         small id="emailHelp" class="form-text text-muted" Вставте URL адрес изобразения.
       .form-group
-        = form.label :category
-        = form.collection_select :category, Category.all, :title, :title, {prompt: true}, class:'form-control'
-        small id="emailHelp" class="form-text text-muted" Можно оставить пустой. Выберите категорию, за прохождение которой будет награда.
+        = form.label :rule_type
+        = form.text_field :rule_type, class:"form-control"
+        / = form.collection_select :rule_type, Badge.all, :rule_type, :rule_type, {prompt: true}, class:'form-control'
+        / Может отделную таблицу создавать маленькую с перечнем возможных ПРАВИЛ?
+        small id="emailHelp" class="form-text text-muted" Обязательно выберите тип награды.
       .form-group
-        = form.label :level
-        = form.number_field :level
-        small id="emailHelp" class="form-text text-muted" Можно оставить пустой. Выберите уровень тех тестов, пройдя которые (все) пользователь получит награду.
+        = form.label :param
+        = form.text_field :param
+        small id="emailHelp" class="form-text text-muted" Введите доп. параметр (например категорию или уровень).
       .btn.btn-primary
         = form.submit
 

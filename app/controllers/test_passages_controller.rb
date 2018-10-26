@@ -53,7 +53,7 @@ class TestPassagesController < ApplicationController
     badges.each do |badge|
       current_user.badge_issueds.create!(badge: badge)
     end
-    flash[:notice] = "Hello" if badges.any?
+    flash[:notice] = "У вас новые награды!" if badges.any?
 
   end
 
