@@ -1,3 +1,15 @@
+-if @test_passage.test.timer
+  .hide
+    .time = @test_passage.test.timer
+    = link_to "Result", result_test_passage_path, class:'result-button'
+  .timer
+    span.timer__span1
+    span.timer__span2
+    span.hide-timer__span-colon
+      |:
+    span.timer__span3
+    span.timer__span4
+
 .progress
   .progress-bar#test_show_progress aria-valuemax="0" aria-valuemin="100" aria-valuenow="0" role="progressbar" style=("width: 4%;")  1%
 
@@ -19,7 +31,7 @@
         .form-check
           = b.check_box id: "answer_ids_#{b.object.id}"
           = b.label
-      = form.submit t('.next')
+      = form.submit t('.next'), class:"next"
 
 p.btn.btn-outline-info.my-2 = link_to 'Gist Question', gist_test_passage_path(@test_passage), method: :post
 p.btn.btn-outline-danger.my-2 = link_to t('.break_test'), tests_path

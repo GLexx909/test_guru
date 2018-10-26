@@ -1,5 +1,4 @@
-/ h1 The #{ @test_passage.test.title } Test was Completed!
-h1 = t('.header', title: @test_passage.test.title)
+h1.result = t('.header', title: @test_passage.test.title)
 - if @test_passage.success?
   .percent
     div
