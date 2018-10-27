@@ -1,14 +1,12 @@
 -if @test_passage.test.timer
   .hide
-    .time = @test_passage.test.timer
+    .time = @test_passage.test.timer*60
     = link_to "Result", result_test_passage_path, class:'result-button'
   .timer
-    span.timer__span1
-    span.timer__span2
+    span.timer__minutes
     span.hide-timer__span-colon
       |:
-    span.timer__span3
-    span.timer__span4
+    span.timer__seconds
 
 .progress
   .progress-bar#test_show_progress aria-valuemax="0" aria-valuemin="100" aria-valuenow="0" role="progressbar" style=("width: 4%;")  1%
