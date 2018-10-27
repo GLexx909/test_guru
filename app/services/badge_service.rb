@@ -7,14 +7,9 @@ class BadgeService
   end
 
   def call
-    @badges_box = []
-
     Badge.all.select do |badge|
-
-      send(badge.rule_type, badge, *badge.param)
-      @badges_box << badge
+      send(badge.rule_type, badge.param)
     end
-    @badges_box
   end
 
   private
@@ -23,15 +18,15 @@ class BadgeService
     self.test_passage.user.tests.distinct
   end
 
-  def for_category(badge, category)
-    badge if user_tests.where(category: category).count == Test.where(category: category).count
+  def can_give_for_category?(category)
+    true if user_tests.where(category: category).count == Test.where(category: category).count
   end
 
-  def for_level(badge, level)
-    badge if user_tests.where(level: level).count == Test.where(level: level).count
+  def can_give_for_level?(level)
+    true if user_tests.where(level: level).count == Test.where(level: level).count
   end
 
-  def first_attempt(badge) # wrong number of arguments (given 1, expected 2), если указывать параметр _param. Без него работает всё.
-    badge if self.test_passage.unique?
+  def can_give_for_first_attempt?(_param)
+    true if self.test_passage.unique?
   end
 end

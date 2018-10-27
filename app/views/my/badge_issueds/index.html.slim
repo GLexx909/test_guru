@@ -1,6 +1,6 @@
-= link_to 'Список возможных наград', badges_list_path
+= link_to 'Список возможных наград', badges_path
 table.table.table-striped.table-sm
-  caption style='caption-side:top' Награды
+  caption style='caption-side:top' Награды #{@badge_issueds.count}шт.
   thead.thead-dark
     tr
       th = "Name"

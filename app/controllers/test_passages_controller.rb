@@ -51,9 +51,9 @@ class TestPassagesController < ApplicationController
     badges = service.call
 
     badges.each do |badge|
-      current_user.badge_issueds.create!(badge: badge)
+      current_user.badge_issueds.create!(badge: badge) if badge.present?
     end
-    flash[:notice] = "У вас новые награды!" if badges.any?
+    flash[:notice] = "У вас новые награды! #{badges.count}шт." if badges.any?
 
   end
 

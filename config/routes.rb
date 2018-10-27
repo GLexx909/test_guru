@@ -18,8 +18,11 @@ Rails.application.routes.draw do
 
   get 'contact_us', to: 'contact_us#show'
   post 'contact_us/create', to: 'contact_us#create'
-  get 'badges', to: 'badge_issueds#index'
-  get 'badges_list', to: 'badges#index'
+  get 'badges', to: 'badges#index'
+
+  namespace :my do
+    get 'badges', to: 'badge_issueds#index'
+  end
 
   namespace :admin do
     resources :tests do
