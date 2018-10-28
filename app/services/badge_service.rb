@@ -13,11 +13,11 @@ class BadgeService
   end
 
   private
-
   def user_tests
     self.test_passage.user.tests.distinct
   end
 
+  # Do not foget add the new method name to app/views/admin/badges/_form.html.slim  to  form.select array!
   def can_give_for_category?(category)
     user_tests.where(category: category).count == Test.where(category: category).count
   end

@@ -12,9 +12,8 @@
         small id="emailHelp" class="form-text text-muted" Вставте URL адрес изобразения.
       .form-group
         = form.label :rule_type
-        = form.text_field :rule_type, class:"form-control"
-        / = form.collection_select :rule_type, Badge.all, :rule_type, :rule_type, {prompt: true}, class:'form-control'
-        / Может отделную таблицу создавать маленькую с перечнем возможных ПРАВИЛ?
+        / = form.text_field :rule_type, class:"form-control"
+        = form.select(:rule_type, ['can_give_for_category?', 'can_give_for_level?', 'can_give_for_first_attempt?'])
         small id="emailHelp" class="form-text text-muted" Обязательно выберите тип награды.
       .form-group
         = form.label :param
