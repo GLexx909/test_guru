@@ -1,10 +1,11 @@
-nav.navbar.navbar-light.bg-light.nav
-  .navbar-brand
-    = link_to 'TEST GURU', root_path
-  span.navbar_text
-    - if user_signed_in?
-      = t('.welcome_message', name: current_user.name) if user_signed_in?
-      b = link_to t('.signout'),  destroy_user_session_path, method: :delete
-    - else
-      b = link_to t('.signup'), new_user_registration_path
-      b = link_to t('.login'), new_user_session_path
+nav.navbar.navbar-expand-lg.navbar-light.bg-light
+  .navbar-brand = link_to 'TEST GURU', root_path
+  #navbarResponsive.collapse.navbar-collapse
+    ul.navbar-nav.ml-auto
+      - if user_signed_in?
+        li.nav-item.align-self-center = t('.welcome_message', name: current_user.name)
+        li.nav-item = link_to "Награды", my_badges_path, class: 'nav-link active'
+        li.nav-item = link_to t('.signout'),  destroy_user_session_path, method: :delete, class: 'nav-link active'
+      - else
+        li.nav-item = link_to t('.signup'), new_user_registration_path, class: 'nav-link active'
+        li.nav-item = link_to t('.login'), new_user_session_path, class: 'nav-link active'

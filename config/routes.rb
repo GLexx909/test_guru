@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
 
-  # resources :gists
   root 'tests#index'
 
   devise_for :users, path: :gurus, path_names: { sign_in: :login, sign_out: :logout },
@@ -19,6 +18,11 @@ Rails.application.routes.draw do
 
   get 'contact_us', to: 'contact_us#show'
   post 'contact_us/create', to: 'contact_us#create'
+  get 'badges', to: 'badges#index'
+
+  namespace :my do
+    get 'badges', to: 'badge_issueds#index'
+  end
 
   namespace :admin do
     resources :tests do
@@ -29,6 +33,7 @@ Rails.application.routes.draw do
       end
     end
     resources :gists, only: :index
+    resources :badges
   end
 
 end

@@ -26,6 +26,10 @@ class TestPassage < ApplicationRecord
     correct_percent > 84
   end
 
+  def success_all?
+    correct_percent == 100
+  end
+
   private
 
   def before_save_set_next_question

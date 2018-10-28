@@ -1,0 +1,2 @@
+module BagdesHelper
+end

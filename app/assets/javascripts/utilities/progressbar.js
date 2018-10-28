@@ -12,7 +12,7 @@ document.addEventListener('turbolinks:load', function() {
 });
 
 function progressbarEdit(currentNumber, totalCount){
-  var currentPercent = (100/+totalCount)*(+currentNumber-1);
+  var currentPercent = Math.round((100/+totalCount)*(+currentNumber-1));
   var progressbar = document.querySelector('#test_show_progress');
 
   progressbar.style.cssText='width:' + currentPercent + '%';
