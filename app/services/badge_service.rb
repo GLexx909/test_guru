@@ -19,14 +19,14 @@ class BadgeService
   end
 
   def can_give_for_category?(category)
-    true if user_tests.where(category: category).count == Test.where(category: category).count
+    user_tests.where(category: category).count == Test.where(category: category).count
   end
 
   def can_give_for_level?(level)
-    true if user_tests.where(level: level).count == Test.where(level: level).count
+    user_tests.where(level: level).count == Test.where(level: level).count
   end
 
   def can_give_for_first_attempt?(_param)
-    true if self.test_passage.unique?
+    TestPassage.where(user: test_passage.user, test: test_passage.test).count <= 1
   end
 end

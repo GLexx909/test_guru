@@ -30,11 +30,6 @@ class TestPassage < ApplicationRecord
     correct_percent == 100
   end
 
-  def unique?
-    TestPassage.where(user: self.user, test: self.test).count <= 1
-  end
-
-
   private
 
   def before_save_set_next_question
