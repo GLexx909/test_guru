@@ -12,6 +12,13 @@ class TestPassagesController < ApplicationController
   def update
     @test_passage.accept!(params[:answer_ids])
 
+    if @test_passage.test.timer
+      if  DateTime.now > (@test_passage.created_at + @test_passage.test.timer*60)
+        render :result
+        return
+      end
+    end
+
     if @test_passage.completed?
       TestsMailer.completed_test(@test_passage).deliver_now
       redirect_to result_test_passage_path(@test_passage)
