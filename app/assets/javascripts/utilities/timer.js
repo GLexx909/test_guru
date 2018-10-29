@@ -4,48 +4,40 @@ document.addEventListener('turbolinks:load', function() {
   let time = document.querySelector('.time');
   let minutes = document.querySelector('.timer__minutes');
   let seconds = document.querySelector('.timer__seconds');
-  let next = document.querySelector('.next');
+  let break_test = document.querySelector('.break_test');
 
-  if (button && time && minutes && seconds && next) {
+  // Определяем, является ли вьюха нужной, иначе отчищаем счётчик.
+  if (button && time && minutes && seconds && break_test) {
     timer();
   }else{
-    document.cookie = "timeArray=; expires=Mon, 05 Jul 1973 16:37:51 GMT; ";
+    localStorage.removeItem("timer")
   }
-
 
 });
 
 function timer(){
-  if (getCookie('timeArray')){
-    var time = getCookie('timeArray')
-  }else{
-    var time = document.querySelector('.time').innerHTML;
-    if (time.length < 3) {
-      let timeHide = document.querySelector('.time')
-      timeHide.innerHTML = getCookie('timeArray')
-    }
 
+  // Если это продолжение теста, данные берутся из ЛС
+  if (localStorage.getItem('timer')){
+    var time = localStorage.getItem('timer')
+  }else{
+    // Если это вновь запущенный тест, берём данные времени из вьюхи
+    var time = document.querySelector('.time').innerHTML*60;
   }
 
   let minutes = document.querySelector('.timer__minutes');
   let seconds = document.querySelector('.timer__seconds');
-
-
+  // Сам таймер
   function start_time(){
-
     minInSec = Math.floor(time/60)
     minutes.innerHTML = minInSec
-    seconds.innerHTML = time - (minInSec)*60
+    seconds.innerHTML = time - (minInSec*60)
 
     time--
-
-    setCookie('timeArray', time)
-
-    let timeHide = document.querySelector('.time')
-    timeHide.innerHTML = time
-
+    localStorage.setItem('timer', time)
+    // Если время истекло
     if (time == 0) {
-      document.cookie = "timeArray=; expires=Mon, 05 Jul 1973 16:37:51 GMT; ";
+      localStorage.removeItem("timer")
       clearInterval(timerId);
       let button = document.querySelector('.result-button');
       button.click();
@@ -55,14 +47,9 @@ function timer(){
 
   var timerId = setInterval(start_time,1000);
 
+  // Если тест прерывается - останавливаем счётчик
+  let break_test = document.querySelector('.break_test');
+  break_test.onclick = function(){
+    clearInterval(timerId);
+  }
 }
-
-function setCookie(name, value) {
-  document.cookie = name + "=" + value;
-};
-
-function getCookie(name) {
-  var r = document.cookie.match("(^|;) ?" + name + "=([^;]*)(;|$)");
-  if (r) return r[2];
-  else return "";
-};
