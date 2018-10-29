@@ -12,8 +12,7 @@
         small id="emailHelp" class="form-text text-muted" Вставте URL адрес изобразения.
       .form-group
         = form.label :rule_type
-        / = form.text_field :rule_type, class:"form-control"
-        = form.select(:rule_type, ['can_give_for_category?', 'can_give_for_level?', 'can_give_for_first_attempt?'])
+        = form.select(:rule_type, BadgeService::BADGES_RULE_TIPES)
         small id="emailHelp" class="form-text text-muted" Обязательно выберите тип награды.
       .form-group
         = form.label :param

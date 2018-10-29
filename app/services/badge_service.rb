@@ -17,7 +17,9 @@ class BadgeService
     self.test_passage.user.tests.distinct
   end
 
-  # Do not foget add the new method name to app/views/admin/badges/_form.html.slim  to  form.select array!
+  # Do not foget add the new method name to BADGES_RULE_TIPES constant!
+  BADGES_RULE_TIPES = ['can_give_for_category?', 'can_give_for_level?', 'can_give_for_first_attempt?']
+  
   def can_give_for_category?(category)
     user_tests.where(category: category).count == Test.where(category: category).count
   end
@@ -29,4 +31,5 @@ class BadgeService
   def can_give_for_first_attempt?(_param)
     TestPassage.where(user: test_passage.user, test: test_passage.test).count <= 1
   end
+
 end
