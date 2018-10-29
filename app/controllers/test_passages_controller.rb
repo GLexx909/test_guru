@@ -12,11 +12,9 @@ class TestPassagesController < ApplicationController
   def update
     @test_passage.accept!(params[:answer_ids])
 
-    if @test_passage.test.timer
-      if  DateTime.now > (@test_passage.created_at + @test_passage.test.timer*60)
-        render :result
-        return
-      end
+    if @test_passage.test.timer && DateTime.now > (@test_passage.created_at + @test_passage.test.timer*60)
+      render :result
+      return
     end
 
     if @test_passage.completed?
