@@ -26,6 +26,14 @@ class TestPassage < ApplicationRecord
     correct_percent > 84
   end
 
+  def time_is_up?
+    remaining_time < 0
+  end
+
+  def remaining_time
+    self.test.timer*60 - (Time.now - self.created_at).ceil
+  end
+
   private
 
   def before_save_set_next_question

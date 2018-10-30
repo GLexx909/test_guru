@@ -1,45 +1,30 @@
 document.addEventListener('turbolinks:load', function() {
 
-  let button = document.querySelector('.result-button');
-  let time = document.querySelector('.time');
-  let minutes = document.querySelector('.timer__minutes');
-  let seconds = document.querySelector('.timer__seconds');
-  let break_test = document.querySelector('.break_test');
+  var time = document.querySelector('.time');
 
-  // Определяем, является ли вьюха нужной, иначе отчищаем счётчик.
-  if (button && time && minutes && seconds && break_test) {
+  if (time) {
     timer();
-  }else{
-    localStorage.removeItem("timer")
   }
 
 });
 
 function timer(){
 
-  // Если это продолжение теста, данные берутся из ЛС
-  if (localStorage.getItem('timer')){
-    var time = localStorage.getItem('timer')
-  }else{
-    // Если это вновь запущенный тест, берём данные времени из вьюхи
-    var time = document.querySelector('.time').innerHTML*60;
-  }
+  var time = document.querySelector('.time').innerHTML;
 
-  let minutes = document.querySelector('.timer__minutes');
-  let seconds = document.querySelector('.timer__seconds');
-  // Сам таймер
+  var minutes = document.querySelector('.timer__minutes');
+  var seconds = document.querySelector('.timer__seconds');
+
   function start_time(){
     minInSec = Math.floor(time/60)
     minutes.innerHTML = minInSec
     seconds.innerHTML = time - (minInSec*60)
 
     time--
-    localStorage.setItem('timer', time)
-    // Если время истекло
-    if (time == 0) {
-      localStorage.removeItem("timer")
+
+    if (time < 0) {
       clearInterval(timerId);
-      let button = document.querySelector('.result-button');
+      var button = document.querySelector('.result-button');
       button.click();
     }
 
@@ -47,8 +32,7 @@ function timer(){
 
   var timerId = setInterval(start_time,1000);
 
-  // Если тест прерывается - останавливаем счётчик
-  let break_test = document.querySelector('.break_test');
+  var break_test = document.querySelector('.break_test');
   break_test.onclick = function(){
     clearInterval(timerId);
   }
