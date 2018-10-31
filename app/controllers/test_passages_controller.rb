@@ -10,13 +10,9 @@ class TestPassagesController < ApplicationController
   end
 
   def update
-
-    if @test_passage.time_is_up?
-      render :result
-      return
-    end
-
     @test_passage.accept!(params[:answer_ids])
+    
+    @test_passage.complete! if @test_passage.time_is_up?
 
     if @test_passage.completed?
       TestsMailer.completed_test(@test_passage).deliver_now

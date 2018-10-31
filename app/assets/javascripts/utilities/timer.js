@@ -15,7 +15,7 @@ function timer(){
   var minutes = document.querySelector('.timer__minutes');
   var seconds = document.querySelector('.timer__seconds');
 
-  function start_time(){
+  function starTimer(){
     minInSec = Math.floor(time/60)
     minutes.innerHTML = minInSec
     seconds.innerHTML = time - (minInSec*60)
@@ -24,13 +24,15 @@ function timer(){
 
     if (time < 0) {
       clearInterval(timerId);
-      var button = document.querySelector('.result-button');
+      var button = document.querySelector('.next');
       button.click();
     }
 
-  }
+  };
 
-  var timerId = setInterval(start_time,1000);
+  starTimer();
+
+  var timerId = setInterval(starTimer,1000);
 
   var break_test = document.querySelector('.break_test');
   break_test.onclick = function(){
