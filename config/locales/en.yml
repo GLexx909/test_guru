@@ -97,6 +97,7 @@ en:
   admin:
     nav:
       control_panel: "Control panel"
+      badges: "Badges"
     tests:
       form_inline:
         submit: 'Ok'

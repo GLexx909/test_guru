@@ -1,0 +1,14 @@
+= link_to 'Список возможных наград', badges_path
+table.table.table-striped.table-sm
+  caption style='caption-side:top' Награды #{@badge_issues.count}шт.
+  thead.thead-dark
+    tr
+      th = "Name"
+      th = "Img"
+      th = "Дата вручения"
+  tbody
+  - @badge_issues.each do |badge_issued|
+    tr
+      td.align-middle = badge_issued.badge.name
+      td.align-middle = image_tag badge_issued.badge.img
+      td.align-middle = badge_issued.created_at.strftime("%d %B %Y")

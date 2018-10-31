@@ -17,6 +17,10 @@ class TestPassagesController < ApplicationController
     if @test_passage.completed?
       TestsMailer.completed_test(@test_passage).deliver_now
       redirect_to result_test_passage_path(@test_passage)
+
+      #to give certain Badges to User if test ended successfully
+      give_budges if @test_passage.success?
+
     else
       render :show
     end
@@ -41,6 +45,18 @@ class TestPassagesController < ApplicationController
 
   def find_test_passage
     @test_passage = TestPassage.find(params[:id])
+  end
+
+  def give_budges
+
+    service = BadgeService.new(@test_passage)
+    badges = service.call
+
+    badges.each do |badge|
+      current_user.badge_issueds.create!(badge: badge) if badge.present?
+    end
+    flash[:notice] = "У вас новые награды! #{badges.count}шт." if badges.any?
+
   end
 
 end

@@ -98,6 +98,7 @@ ru:
   admin:
     nav:
       control_panel: "Панель управления"
+      badges: "Награды"
     tests:
       form_inline:
         submit: 'Ok'

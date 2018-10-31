@@ -1,0 +1,18 @@
+h1 Badges show
+
+table.table.table-striped
+  caption style='caption-side:top'
+  thead.thead-dark
+    tr
+      th = "Name"
+      th = "Img"
+      th = "Rule Type"
+      th = "Param"
+  tbody
+  tr
+    td.align-middle = @badge.name
+    td.align-middle = image_tag @badge.img
+    td.align-middle = @badge.rule_type
+    td.align-middle = @badge.param
+
+= link_to t('.back'), admin_badges_path(@badge)

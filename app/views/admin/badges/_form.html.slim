@@ -1,0 +1,24 @@
+.row.justify-content-center
+  .col.col-md-4
+    = form_with model: [:admin, @badge], local: true do |form|
+      = render 'shared/errors', resourse: @badge
+
+      .form-group
+         = form.label :name
+         = form.text_field :name, class:"form-control"
+      .form-group
+        = form.label :img
+        = form.text_field :img, class:"form-control"
+        small id="emailHelp" class="form-text text-muted" Вставте URL адрес изобразения.
+      .form-group
+        = form.label :rule_type
+        = form.select(:rule_type, BadgeService::BADGES_RULE_TIPES)
+        small id="emailHelp" class="form-text text-muted" Обязательно выберите тип награды.
+      .form-group
+        = form.label :param
+        = form.text_field :param
+        small id="emailHelp" class="form-text text-muted" Введите доп. параметр (например категорию или уровень).
+      .btn.btn-primary
+        = form.submit
+
+= link_to t('.back'), admin_badges_path(@badge)

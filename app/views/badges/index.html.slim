@@ -1,0 +1,11 @@
+table.table.table-striped
+  caption style='caption-side:top' Список возможных Наград
+  thead.thead-dark
+    tr
+      th = "Name"
+      th = "Img"
+  tbody
+    - @badges.each do |badge|
+      tr
+        td.align-middle = badge.name
+        td.align-middle = image_tag badge.img
