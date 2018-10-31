@@ -9,20 +9,20 @@ html
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
     link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"
-  body
+  body.justify-content-sb
 
     = render 'shared/admin/nav'
 
     .leftSide
 
-    main
+    main.min-height
       .container
         = render 'shared/flash'
 
         = yield
 
     .rightSide
-    footer.bg-dark.page-footer.text-center.text-md-left.mt-0
+    footer.bg-dark
       .container-fluid
         .row
           .col-md-6
