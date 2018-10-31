@@ -5,6 +5,10 @@ class TestPassage < ApplicationRecord
 
   before_save :before_save_set_next_question
 
+  def complete!
+    self.current_question = nil
+  end
+
   def completed?
     current_question.nil?
   end
@@ -26,8 +30,12 @@ class TestPassage < ApplicationRecord
     correct_percent > 84
   end
 
-  def success_all?
-    correct_percent == 100
+  def time_is_up?
+    remaining_time < 0 if remaining_time
+  end
+
+  def remaining_time
+    self.test.timer*60 - (Time.now - self.created_at).ceil if self.test.timer
   end
 
   private
